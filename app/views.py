@@ -8,6 +8,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 import datetime
 
+usermodule = 'COMP2911';
+
 @app.route('/')
 def index():
     return "Logged in!!!"
@@ -70,10 +72,26 @@ def login():
 def home():
     title = "Home"
     header = "Home"
-    data = current_user
+    data = current_user.modules
     return render_template('home.html',
                             title=title,
-                            header=header, name=current_user.name)
+                            header=header, name=current_user.name,
+                            data=data)
+
+@app.route('/view_assessments', methods=['GET','POST'])
+def view():
+    title = "View"
+    header = "View"
+    # id = request.form['button']
+    # id = int(id)
+
+    data = models.Assessments.query.filter_by(title="COMP2911").all()
+
+    return render_template('view.html',
+                            title=title,
+                            header=header,
+                            name=current_user.name,
+                            data=data)
 
 
 @app.route('/create_module', methods=['GET','POST'])
@@ -81,6 +99,17 @@ def create_module():
     title = "Create Module"
     header = "Create Module"
     form = ModuleForm()
+    user = current_user
+    if form.validate_on_submit():
+        p = models.Modules( title=form.title.data,
+                            credit = form.num_of_credits.data,
+                            num_of_assessments=form.num_of_assessments.data,
+                            module_code = form.module_code.data)
+        db.session.add(p) # add to database
+        current_user.modules.append(p)
+        db.session.commit()
+        flash("Successfully added")
+
     return render_template('create_module.html',
                             title=title,
                             header=header,
@@ -95,6 +124,15 @@ def create_assessment():
     user = current_user
 
     if form.validate_on_submit():
+        p = models.Assessments( title=form.title.data,
+                                marks = form.marks.data,
+                                worth=form.worth.data,
+                                percent=form.percent.data)
+        db.session.add(p) # add to database
+
+        # current_user.modules.assessments.append(p)
+        db.session.commit()
+        flash("Successfully added")
 
     return render_template('create_assessment.html',
                             title=title,

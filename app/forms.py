@@ -20,9 +20,9 @@ class ModuleForm(Form):
 # form to add assessements
 class AssessmentForm(Form):
     title = TextField('name', validators=[DataRequired()])
-    score = IntegerField('score', validators=[DataRequired()])
     marks = IntegerField('marks', validators=[DataRequired()])
     worth = IntegerField('worth', validators=[DataRequired()])
+    percent = IntegerField('percent', validators=[DataRequired()])
 
 class SignUpForm(Form):
     name = TextField('name', validators=[DataRequired()])

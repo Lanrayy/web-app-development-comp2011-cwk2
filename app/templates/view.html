@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-title">
+    <h1>Welcome {{name}}</h1>
+</div>
+<div class="assessments-page-container">
+    <div class="assessment-page">
+        {% for p in data %}
+         <div class="uncompleted-assessments">
+             <div class="info-container">
+                 <div class="assessment-title">
+                     {{ p.title }}
+                 </div>
+                 <div>
+                     <div class="assessments-info">
+                        <p> <strong> Marks:</strong> {{p.marks}} | <strong>Worth:</strong> {{ p.worth }}  |  <strong>Percent:</strong> {{p.percent}} </p>
+                     </div>
+                     <div class="description">
+                         <p> <strong> Module code:</strong> <br> {{ p.module_code }}</p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         {% endfor %}
+    </div>
+</div>
+{% endblock%}
