@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-title">
+    <h1>Login</h1>
+    <p>Please login below</p>
+</div>
+
+<div class="create-assessment-container">
+        <div >{% with messages = get_flashed_messages() %}
+                {% if messages %}
+                 <ul>
+                  {% for message in messages %}
+                    <li class="alert alert-success">{{ message }} </li>
+                  {% endfor %}
+                 </ul>
+               {% endif %}
+             {% endwith %}
+        </div>
+    <div class="create-assessment-page">
+
+        <form method="post" name="create_assessment" class="form">
+            <!-- Prevents Attacks -->
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                <p class="form-label">Username</p>
+                <div>
+                    {{ form.username(class_="input-field") }}
+                    {% for error in form.username.errors %}
+                        <span style="color:red">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                {{ form.status }}
+            </div>
+
+            <div class="form-group">
+                <p class="form-label">Password</p>
+                <p>
+                    {{ form.password(class_="input-field") }}
+                    {% for error in form.password.errors %}
+                        <span style="color:red">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="submit-btn-container">
+                <input type="submit" value="Submit" id=5 class="btn btn-outline-primary submit-btn">
+            </div>
+        </form>
+    </div>
+    <div>
+            {% for p in data %}
+            <div class="uncompleted-assessments">
+                <div class="info-container">
+                    <div class="assessment-title">
+                    </div>
+                    <div>
+                        <div class="assessments-info">
+                           <p> <strong> Username:</strong> {{p.username}} | <strong>Password:</strong> {{ p.password }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+
+
+{% endblock%}

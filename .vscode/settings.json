@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "./comp-2011-coursework-2/app.db",
+            "dialect": "SQLite",
+            "name": "cwk database"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
