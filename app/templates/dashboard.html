@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-title">
+    <h1>Dashboard</h1>
+    <h1>Welcome back {{name}}</h1>
+</div>
+<form method="post" name="completed">
+    <button type="submit" name="button" value='add-module' class="btn btn-outline-primary update-btn">Add module</button>
+</form>
+<div class="assessments-page-container">
+    <div >{% with messages = get_flashed_messages() %}
+            {% if messages %}
+             <ul>
+              {% for message in messages %}
+                <li class="alert alert-success">{{ message }} </li>
+              {% endfor %}
+             </ul>
+           {% endif %}
+         {% endwith %}
+    </div>
+    <h2>Modules</h2>
+    <div class="assessment-page">
+        {% for p in data %}
+         <div class="uncompleted-assessments" value={{p.module_code}}>
+             <div class="info-container">
+                 <div class="assessment-title">
+                     {{ p.title }}
+                 </div>
+                 <div>
+                     <div class="assessments-info">
+                        <p> <strong> Module Code:</strong> {{p.module_code}} |
+                            <strong>Number of Assessments:</strong> {{ p.num_of_assessments }}  |
+                            <strong>Average:</strong> {{p.average}} </p>
+                            <strong> Student ID</strong> {{p.student_id}}
+                     </div>
+                     <div class="description">
+                         <p> <strong> Description:</strong> <br> {{ p.description }}</p>
+                     </div>
+                 </div>
+             </div>
+             <div class="update-btn-container">
+                <form method="post" name="completed">
+                    <button type="submit" name="button" value='{{p.module_code}}' class="btn btn-outline-primary update-btn">View Module {{p.module_code}}</button>
+               </form>
+            </div>
+         </div>
+         {% endfor %}
+    </div>
+</div>
+{% endblock%}

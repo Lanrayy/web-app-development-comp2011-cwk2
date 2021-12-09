@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-title">
+    <h1>Welcome {{name}}</h1>
+    <h1>Selected: {{selected_module}}</h1>
+</div>
+<div class="assessments-page-container">
+    <form method="post" name="completed">
+        <button type="submit" name="button" value='back-to-dashboard' class="btn btn-outline-primary update-btn"> < Back to Dashboard</button>
+        <button type="submit" name="button" value='add-assessment' class="btn btn-outline-primary update-btn">Add Assessment</button>
+
+    </form>
+    <div >{% with messages = get_flashed_messages() %}
+            {% if messages %}
+             <ul>
+              {% for message in messages %}
+                <li class="alert alert-success">{{ message }} </li>
+              {% endfor %}
+             </ul>
+           {% endif %}
+         {% endwith %}
+    </div>
+    <div class="assessment-page">
+        {% for p in data %}
+         <div class="uncompleted-assessments">
+             <div class="info-container">
+                 <div class="assessment-title">
+                     {{ p.title }}
+                 </div>
+                 <div>
+                     <div class="assessments-info">
+                        <p> <strong> Score:</strong> {{p.score}} | <strong> Total Marks:</strong> {{p.total_marks}} |  <strong>Score Percent:</strong> {{p.score_percent}}% | <strong>Worth:</strong> {{ p.assessment_worth }}%   </p>
+                     </div>
+                     <div class="description">
+                         <p> <strong> Module code:</strong> <br> {{ p.module_code }}</p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         {% endfor %}
+    </div>
+</div>
+{% endblock%}
