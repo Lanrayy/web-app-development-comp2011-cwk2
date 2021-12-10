@@ -30,7 +30,7 @@
                      <div class="assessments-info">
                         <p> <strong> Module Code:</strong> {{p.module_code}} |
                             <strong>Number of Assessments:</strong> {{ p.num_of_assessments }}  |
-                            <strong>Average:</strong> {{p.average}} </p>
+                            <strong>Average:</strong> {{p.average}}% </p>
                             <strong> Student ID</strong> {{p.student_id}}
                      </div>
                      <div class="description">
@@ -41,6 +41,7 @@
              <div class="update-btn-container">
                 <form method="post" name="completed">
                     <button type="submit" name="button" value='{{p.module_code}}' class="btn btn-outline-primary update-btn">View Module {{p.module_code}}</button>
+                    <button type="submit" name="button" value='delete-module-{{p.module_code}}' class="btn btn-outline-danger update-btn">Delete Module {{p.module_code}}</button>
                </form>
             </div>
          </div>

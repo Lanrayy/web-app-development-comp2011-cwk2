@@ -23,7 +23,6 @@ class Students(UserMixin, db.Model):
     # def get_id(self):
     #        return (self.user_id)
 
-
 class Modules(db.Model):
     id = db.Column(db.Integer, primary_key=True, unique=True)
     module_code = db.Column(db.String(1000))

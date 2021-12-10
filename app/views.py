@@ -109,14 +109,28 @@ def dashboard():
         try:
             #get the button value & convert it to an integer
             clicked = request.form['button']
-
+            flash(clicked)
+            flash('delete-module' in clicked)
             if clicked == 'add-module':
                 flash(clicked)
                 return redirect(url_for('add_module'))
-            else:
-                flash(clicked)
-                session['selected_module'] = clicked #you can use AJAX as well to pass data betwen the pages
-                return redirect(url_for('view_assessments'))
+            else: # view module
+                if 'delete-module' in clicked: # deleting the module
+                    flash('deleting module')
+                    module_code = clicked[14:]
+                    flash(f'|{module_code}|')
+                    #get all modules
+                    module = models.Modules.query.filter_by(student_id=current_user.id).filter_by(module_code=module_code).first()
+                    assessments = models.Assessments.query.filter_by(module_code=module_code).filter_by(student_id=current_user.id).all()
+                    for assessment in assessments:
+                        db.session.delete(assessment)
+                    db.session.delete(module)
+                    db.session.commit()
+
+                else: # viewing the module
+                    flash(clicked)
+                    session['selected_module'] = clicked #you can use AJAX as well to pass data betwen the pages
+                    # return redirect(url_for('view_assessments'))
         except:
             flash("Error! Unable to perform action. Try again", "danger")
 
@@ -201,17 +215,39 @@ def add_assessment():
 
                 #calulate weighted avarage and update the right module
                 weighted_average = 0
+                sumofTakenAssessments = 0
+                num_of_assessments = 0 # number of assesments taken
                 data = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
                 for assessment in data:
+                    num_of_assessments += 1
+                    sumofTakenAssessments += assessment.assessment_worth
                     worth = assessment.assessment_worth / 100
                     weighted_average += (worth * assessment.score_percent)
                 flash(weighted_average)
 
                 #update the selected module module
                 module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
-                module.average = weighted_average 
-                flash("Module information Successfully updated")
+                module.average = weighted_average
+                db.session.commit()
+                flash("Module Information Successfully Updated")
 
+                #calculate targets
+                #more than one assessment left
+                flash(sumofTakenAssessments)
+                worthOfFinalAssessment = 100 - sumofTakenAssessments
+                numberOfAssessmentsLeft = module.num_of_assessments - num_of_assessments
+                gradeForAFirst = ((70 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                gradeForATwoOne = ((60 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                gradeForATwoTwo = ((50 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                gradeForAPass = ((40 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                output = f"Your current grade is {weighted_average}%."
+                output += f"You have {numberOfAssessmentsLeft} assessments left worth a total of {worthOfFinalAssessment}%."
+                output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
+
+
+
+
+                flash(output)
             # if user clicks a button, check if the button is the back button
             clicked = request.form['back_button']
             if clicked == 'back-to-module':
