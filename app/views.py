@@ -118,7 +118,6 @@ def dashboard():
                 if 'delete-module' in clicked: # deleting the module
                     flash('deleting module')
                     module_code = clicked[14:]
-                    flash(f'|{module_code}|')
                     #get all modules
                     module = models.Modules.query.filter_by(student_id=current_user.id).filter_by(module_code=module_code).first()
                     assessments = models.Assessments.query.filter_by(module_code=module_code).filter_by(student_id=current_user.id).all()
@@ -126,11 +125,10 @@ def dashboard():
                         db.session.delete(assessment)
                     db.session.delete(module)
                     db.session.commit()
-
                 else: # viewing the module
                     flash(clicked)
                     session['selected_module'] = clicked #you can use AJAX as well to pass data betwen the pages
-                    # return redirect(url_for('view_assessments'))
+                    return redirect(url_for('view_assessments'))
         except:
             flash("Error! Unable to perform action. Try again", "danger")
 
@@ -292,6 +290,16 @@ def view_assessments():
                     return redirect(url_for('add_assessment'))
             elif clicked == 'back-to-dashboard':
                 return redirect(url_for('dashboard'))
+            else:#deleting assessment
+                if 'delete-assessment' in clicked:
+                    flash('deleting assessment')
+                    title = clicked[18:]
+                    flash(title)
+                    assessments = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
+                    for assessment in assessments:
+                        if(title == assessment.title):
+                            db.session.delete(assessment)
+                    db.session.commit()
 
         except Exception as e:
             flash(e)
