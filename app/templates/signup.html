@@ -1,23 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
+<div >{% with messages = get_flashed_messages() %}
+    {% if messages %}
+     <ul>
+      {% for message in messages %}
+        <li class="alert alert-success">{{ message }} </li>
+      {% endfor %}
+     </ul>
+   {% endif %}
+ {% endwith %}
+</div>
 <div class="page-title">
     <h1>Sign up</h1>
     <p>Please sign up below</p>
 </div>
 
-<div class="create-assessment-container">
-        <div >{% with messages = get_flashed_messages() %}
-                {% if messages %}
-                 <ul>
-                  {% for message in messages %}
-                    <li class="alert alert-success">{{ message }} </li>
-                  {% endfor %}
-                 </ul>
-               {% endif %}
-             {% endwith %}
-        </div>
-    <div class="create-assessment-page">
-
+<div class="signup-container">
+    <div class="signup-page">
         <form method="post" name="create_assessment" class="form">
             <!-- Prevents Attacks -->
             {{ form.hidden_tag() }}
@@ -72,23 +71,6 @@
             <small class="text-muted">
                 Already have an account? <a class="ml-2" href={{url_for('login')}}> Log in </a>
             </small>
-    </div>
-
-    <div>
-            {% for p in data %}
-            <div class="uncompleted-assessments">
-                <div class="info-container">
-                    <div class="assessment-title">
-                        {{ p.name }}
-                    </div>
-                    <div>
-                        <div class="assessments-info">
-                           <p> <strong> Username:</strong> {{p.username}} | <strong>Password:</strong> {{ p.password }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
     </div>
 </div>
 

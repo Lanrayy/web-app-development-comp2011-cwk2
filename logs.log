@@ -38,3 +38,33 @@ INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:21:33] "[36mGET /static/styles.css 
 INFO:app:login route request
 INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:23:09] "GET /login HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:23:09] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:signup route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:25:27] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:25:27] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:signup route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:26:54] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:26:54] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:index route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:13] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:index route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:19] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:signup route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:22] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:22] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:login route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:24] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:login route request
+INFO:app:user authenticated. logging in...
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:35] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked add module button. redirecting to add module page...
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:43] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:43] "GET /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:27:43] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -

@@ -59,7 +59,7 @@ nav{
 .welcome{
     font-size: 40px;
     color: rgb(156, 156, 156);
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .to{
@@ -84,7 +84,7 @@ nav{
 }
 
 
-/* LOGIN AND SIGNUP STYLES */
+/* LOGIN STYLES */
 .login-container{
     display: flex;
     align-items: center;
@@ -99,6 +99,19 @@ nav{
 }
 
 
+/* SIGNUP STYLES */
+.signup-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /*border: 1px solid red;*/
+}
+
+.signup-page{
+    display: flex;
+    justify-content: center;
+    /*border: solid 1px red;*/
+}
 
 
 
