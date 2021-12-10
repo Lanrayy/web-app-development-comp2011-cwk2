@@ -1,22 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
+<div >{% with messages = get_flashed_messages() %}
+    {% if messages %}
+     <ul>
+      {% for message in messages %}
+        <li class="alert alert-success">{{ message }} </li>
+      {% endfor %}
+     </ul>
+   {% endif %}
+ {% endwith %}
+</div>
 <div class="page-title">
     <h1>Login</h1>
     <p>Please login below</p>
 </div>
 
-<div class="create-assessment-container">
-        <div >{% with messages = get_flashed_messages() %}
-                {% if messages %}
-                 <ul>
-                  {% for message in messages %}
-                    <li class="alert alert-success">{{ message }} </li>
-                  {% endfor %}
-                 </ul>
-               {% endif %}
-             {% endwith %}
-        </div>
-    <div class="create-assessment-page">
+<div class="login-container">
+
+    <div class="login-page">
 
         <form method="post" name="create_assessment" class="form">
             <!-- Prevents Attacks -->

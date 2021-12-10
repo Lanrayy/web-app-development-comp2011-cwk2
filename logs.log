@@ -1,139 +1,40 @@
 INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:44] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:44] "GET /static/styles.css HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:45] "[32mPOST / HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:16:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:16:12] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:16:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 INFO:app:login route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:45] "GET /login HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:login route request
-INFO:app:user authenticated. logging in...
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:54] "[32mPOST /login HTTP/1.1[0m" 302 -
-INFO:app:dashboard route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:54] "GET /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:54] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:56] "GET /account HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:57] "[32mGET / HTTP/1.1[0m" 302 -
-INFO:app:dashboard route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:57] "GET /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:57] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:dashboard route request
-INFO:app:user clicked view module button: viewing module COMP 2011
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:59] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:59] "GET /view_assessments HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:01:59] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:00] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
-INFO:app:dashboard route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:00] "GET /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:00] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:dashboard route request
-INFO:app:user clicked delete module button...
-INFO:app:module "COMP 2011 Numerical Computation" successfully deleted
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:02] "POST /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:02] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:dashboard route request
-INFO:app:user clicked add module button. redirecting to add module page...
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:07] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
-INFO:app:add module route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:07] "GET /add_module HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:add module route request
-CRITICAL:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:28] "POST /add_module HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:add module route request
-INFO:flask_wtf.csrf:The CSRF token is missing.
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:30] "[32mPOST /add_module HTTP/1.1[0m" 302 -
-INFO:app:dashboard route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:30] "GET /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:dashboard route request
-INFO:app:user clicked view module button: viewing module COMP 2421
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:41] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:41] "GET /view_assessments HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:41] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:43] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
-INFO:app:add assessment request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:43] "GET /add_assessment HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:43] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:add assessment request
-CRITICAL:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:57] "POST /add_assessment HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:57] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:add assessment request
-INFO:flask_wtf.csrf:The CSRF token is missing.
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:59] "[32mPOST /add_assessment HTTP/1.1[0m" 302 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:59] "GET /view_assessments HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:02:59] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:01] "POST /view_assessments HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:01] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:05] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
-INFO:app:dashboard route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:05] "GET /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:06] "[32mGET / HTTP/1.1[0m" 302 -
-INFO:app:dashboard route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:06] "GET /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:07] "GET /account HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:08] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:09] "[32mPOST /account HTTP/1.1[0m" 302 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:09] "GET /edit_password HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:16] "POST /edit_password HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:03:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:05:24] "[32mGET / HTTP/1.1[0m" 302 -
-INFO:app:dashboard route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:05:24] "GET /dashboard HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:05:24] "GET /static/styles.css HTTP/1.1" 200 -
-INFO:app:logout route request
-INFO:app:user logged out
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:05:28] "[32mGET /logout HTTP/1.1[0m" 302 -
-INFO:app:login route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:05:29] "GET /login HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:05:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:login route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:06:50] "GET /login HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:06:50] "GET /static/styles.css HTTP/1.1" 200 -
-INFO:app:login route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:06:52] "GET /login HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:06:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:07:36] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:07:36] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:06] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:08] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:08] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:10] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:12] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:14] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:17:17] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:17:17] "GET /static/styles.css HTTP/1.1" 200 -
 INFO:app:signup route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:15] "GET /signup HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:15] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:17:18] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:17:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
 INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:17] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:18:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:18:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
 INFO:app:index route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:46] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:11:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:44] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:44] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:signup route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:45] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:login route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:46] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:index route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:19:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:index route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:20:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:20:51] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:index route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:21:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:21:11] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:index route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:21:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:21:29] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:login route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:21:33] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:21:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:login route request
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:23:09] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 15:23:09] "GET /static/styles.css HTTP/1.1" 200 -
