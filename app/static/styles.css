@@ -40,11 +40,19 @@ nav{
 }
 
 /* FLASHED MESSAGES & ALERT STYLES */
-.alert{
-    list-style-type: none;
-    width: 1000px;
+ul{
+    padding-left: 0px;
 }
 
+.alert{
+    list-style-type: none;
+    text-align: center; 
+}
+
+.flashes{
+    /* border: 1px solid red; */
+    padding: 0px;
+}
 /* INDEX / HOME STYLES */
 .main-page-container{
     display: flex;

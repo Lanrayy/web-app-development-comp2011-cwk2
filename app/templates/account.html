@@ -6,15 +6,26 @@
     <div class="info-box">
         <div class="page-title">
             <h1>Your Account</h1>
-            <p>You can edit your details here</p>
+            <p>You can edit your account details here</p>
         </div>
-
         <div class="account-info">
-            <h2 class="">Your name: {{current_user.name}}</h2>
-            <p class="text-secondary">Username: {{current_user.username}}</p>
-            <form method="post" name="completed" class="edit-password">
-                <p>Want to change your password?</p>
-                <button type="submit" name="button" value='change-password' class="btn btn-outline-primary update-btn">Click here</button>
+            <div class="border-top border-dark pt-3">
+                <h4 >Name: {{current_user.name}}</h4>
+                <h4 >Username: {{current_user.username}}</h4>
+            </div>
+            <form method="post" name="completed">
+                <div class="change-password">
+                    <p>Want to change your password?</p>
+                    <button type="submit" name="button" value='change-password' class="btn btn-outline-primary update-btn">Click here</button> 
+                </div>
+
+                <div class="border-top border-dark pt-3">
+                    <p>Log out?</p>
+                    <button type="submit" name="button" value='logout' class="btn btn-outline-dark update-btn">Click here</button>
+                </div>
+
+                
+
             </form>
         </div>
     </div>

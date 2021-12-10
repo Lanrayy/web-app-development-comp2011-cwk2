@@ -116,6 +116,8 @@ def account():
             if clicked_button == 'change-password':
                 flash(clicked_button, 'alert alert-info')
                 return redirect(url_for('edit_password'))
+            elif clicked_button == 'logout':
+                return redirect(url_for('logout'))
         except Exception as e:
             app.logger.warning(e)
     return render_template('account.html',
