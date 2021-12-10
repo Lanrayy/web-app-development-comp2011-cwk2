@@ -10,8 +10,6 @@ from wtforms import ValidationError
 from wtforms.validators import DataRequired
 from wtforms.validators import Length
 from wtforms.validators import EqualTo
-from app import models
-from werkzeug.security import generate_password_hash, check_password_hash
 
 # form to add modules
 class ModuleForm(Form):
@@ -49,4 +47,4 @@ class ButtonForm(Form):
 class PasswordForm(Form):
     old_password = PasswordField('old_password', validators=[DataRequired()])
     new_password = PasswordField('new_password', validators=[DataRequired()])
-    confirm_password = PasswordField('confirm_password', validators=[EqualTo('new_password'), DataRequired()])
+    confirm_password = PasswordField('confirm_password', validators=[EqualTo('new_password', "Password fields do not match"), DataRequired()])

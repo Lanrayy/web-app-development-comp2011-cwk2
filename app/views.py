@@ -53,15 +53,15 @@ def signup():
                 p = models.Students(name=form.name.data,
                                     username=form.username.data,
                                     password = generate_password_hash(password, method='sha256'))
-                # db.session.add(p) # add to database
-                # db.session.commit() # commit data
+                db.session.add(p) # add to database
+                db.session.commit() # commit data
                 flash('Succesfully submitted data')
                 # return redirect(url_for('login')) #redirect to signup
 
             if form.errors!= {}: #if there are no erros from the validators
                 for err_message in form.errors.values():
                     app.logger.info('error! Unable to create account')
-                    flash(f'Error! Unable to create account')
+                    flash(f'Error! Unable to create account', "alert alert-danger")
                     # return redirect(url_for('dashboard'))
         except Exception as e:
             flash(e)
@@ -130,24 +130,28 @@ def edit_password():
     form=PasswordForm()
     if request.method == 'POST':
         try:
-            #get the value of the button clicked
-            clicked_button = request.form['button']
-            flash(clicked_button)
-            #check which button was clicked
-            if clicked_button == 'Change Password':
+            if form.validate_on_submit():
+                #get the value of the button clicked
+                clicked_button = request.form['button']
                 flash(clicked_button)
-                student = models.Students.query.filter_by(id=current_user.id).first()
+                #check which button was clicked
+                if clicked_button == 'Change Password':
+                    flash(clicked_button)
+                    student = models.Students.query.filter_by(id=current_user.id).first()
 
-                if(student): #if the user is found
-                    if check_password_hash(student.password, form.old_password.data): #compare inputed old password with password on database
-                        if check_password_hash(student.password, form.new_password.data): #check if the new password is the same as old password
-                            raise Exception("New password is the same as old password")
+                    if(student): #if the user is found
+                        if check_password_hash(student.password, form.old_password.data): #compare inputed old password with password on database
+                            if check_password_hash(student.password, form.new_password.data): #check if the new password is the same as old password
+                                raise Exception("New password is the same as old password")
+                            else:
+                                student.password = generate_password_hash(form.new_password.data , method='sha256')
+                                db.session.commit()
+                                flash('Successfully changes password', 'alert alert-success')
+                                return redirect(url_for('account'))
                         else:
-                            student.password = form.new_password.data
-                             # return redirect(url_for('account'))
-                    else:
-                         raise Exception("You have entered an incorrect old password")
-
+                            raise Exception("You have entered an incorrect old password")
+                elif clicked_button == 'back-to-account':
+                    return redirect(url_for('account'))
         except Exception as e:
             flash(e, 'alert alert-danger')
             app.logger.warning('e')
