@@ -129,29 +129,26 @@ def edit_password():
     header="Edit password"
     form=PasswordForm()
     if request.method == 'POST':
+        #get the value of the button clicked
+        clicked_button = request.form['button']
+        flash(clicked_button, 'alert alert-danger')
+        #check which button was clicked
         try:
+            if clicked_button == 'back-to-account':
+                return redirect('account')
             if form.validate_on_submit():
-                #get the value of the button clicked
-                clicked_button = request.form['button']
-                flash(clicked_button, 'alert alert-info')
-                #check which button was clicked
-                if clicked_button == 'Change Password':
-                    flash(clicked_button, 'alert alert-info')
-                    student = models.Students.query.filter_by(id=current_user.id).first()
-
-                    if(student): #if the user is found
-                        if check_password_hash(student.password, form.old_password.data): #compare inputed old password with password on database
-                            if check_password_hash(student.password, form.new_password.data): #check if the new password is the same as old password
-                                raise Exception("New password is the same as old password")
-                            else:
-                                student.password = generate_password_hash(form.new_password.data , method='sha256')
-                                db.session.commit()
-                                flash('Successfully changes password', 'alert alert-success')
-                                return redirect(url_for('account'))
+                student = models.Students.query.filter_by(id=current_user.id).first()
+                if(student): #if the user is found
+                    if check_password_hash(student.password, form.old_password.data): #compare inputed old password with password on database
+                        if check_password_hash(student.password, form.new_password.data): #check if the new password is the same as old password
+                            raise Exception("New password is the same as old password")
                         else:
-                            raise Exception("You have entered an incorrect old password")
-                elif clicked_button == 'back-to-account':
-                    return redirect(url_for('account'))
+                            student.password = generate_password_hash(form.new_password.data , method='sha256')
+                            db.session.commit()
+                            flash('Successfully changes password', 'alert alert-success')
+                            return redirect(url_for('account'))
+                    else:
+                        raise Exception("You have entered an incorrect old password")
         except Exception as e:
             flash(e, 'alert alert-danger')
             app.logger.warning('e')

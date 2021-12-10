@@ -1,20 +1,14 @@
-INFO:app:add assessment request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:51:58] "GET /add_assessment HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:51:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:add assessment request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:00] "GET /add_assessment HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:00] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:app:add assessment request
-INFO:flask_wtf.csrf:The CSRF token is missing.
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:01] "[32mPOST /add_assessment HTTP/1.1[0m" 302 -
-INFO:app:view assessment route request
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:01] "GET /view_assessments HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:01] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:39] "GET /account HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:39] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:40] "[32mPOST /account HTTP/1.1[0m" 302 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:40] "GET /edit_password HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-INFO:flask_wtf.csrf:The CSRF token is missing.
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:42] "POST /edit_password HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 21:52:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:43] "GET /edit_password HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:43] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:44] "[32mPOST /edit_password HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:44] "GET /account HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:44] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:47] "[32mPOST /account HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:47] "GET /edit_password HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:54] "[32mPOST /edit_password HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:54] "GET /account HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:54] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:55] "[32mPOST /account HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:55] "GET /edit_password HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Dec/2021 22:08:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
