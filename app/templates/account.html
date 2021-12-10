@@ -8,20 +8,21 @@
             <h1>Your Account</h1>
             <p>You can edit your account details here</p>
         </div>
-        <div class="account-info">
-            <div class="border-top border-dark pt-3">
-                <h4 >Name: {{current_user.name}}</h4>
+        <div class="account-info-container">
+            <div class="account-info">
+                <h4 >Account Name: {{current_user.name}}</h4>
                 <h4 >Username: {{current_user.username}}</h4>
-            </div>
-            <form method="post" name="completed">
-                <div class="change-password">
-                    <p>Want to change your password?</p>
-                    <button type="submit" name="button" value='change-password' class="btn btn-outline-primary update-btn">Click here</button> 
-                </div>
+                <form method="post" name="completed">
+                        <div class="change-password">
+                            <h4>Password: </h4>
+                            <button type="submit" name="button" value='change-password' class="btn btn-outline-primary">Click here to change password</button> 
+                        </div>
+                </form>
 
-                <div class="border-top border-dark pt-3">
-                    <p>Log out?</p>
-                    <button type="submit" name="button" value='logout' class="btn btn-outline-dark update-btn">Click here</button>
+            </div>
+            <form class="account-buttons-container" method="post" name="completed">
+                <div class="account-logout border-top border-secondary pt-3">
+                    <button type="submit" name="button" value='logout' class="account-logout-button btn btn-outline-danger update-btn">Log out</button>
                 </div>
 
                 

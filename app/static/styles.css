@@ -396,31 +396,83 @@ ul{
 
 
 
-/*ACCOUNT STYLES*/
+/*ACCOUNT PAGE STYLES*/
 .main-account-container{
     display: flex;
     justify-content: center;
-    border: 1px solid red;
-}
-
-.account-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;s
-    border: solid 1px red;
 }
 
 .info-box{
     background-color: rgb(230, 230, 230);
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 400px;
+    margin-top: 20px;
+    border-radius: 20px;
+    /* border: solid 1px blue; */
 }
+
 .page-title{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 80px;
+    /* border: solid 1px green; */
+}
+
+.account-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 1px red; */
+    width: 100%;
+}
+
+.account-info{
+    /* border: solid 1px red; */
+    width: 65%;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+
+}
+
+.account-buttons-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 1px red; */
+    width: 100%;
+}
+
+.change-password{
+    display: flex;
+    width: 100%;
+    /* border: solid 1px gray; */
+    height: 50px;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.change-password > h4{
+    margin-right: 10px;
+}
+
+.account-logout{
+    display: flex;
+    width: 40%;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center
+
+}
+
+.account-logout-button{
+    margin-top: 20px;
 }
 
 
