@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<div >{% with messages = get_flashed_messages() %}
+<div >{% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-     <ul>
-      {% for message in messages %}
-        <li class="alert alert-success">{{ message }} </li>
+      <ul class=flashes>
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
       {% endfor %}
-     </ul>
-   {% endif %}
- {% endwith %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 </div>
 <div class="page-title">
     <h1>Sign up</h1>

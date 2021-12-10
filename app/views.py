@@ -33,6 +33,7 @@ def index():
     return render_template('index.html',
                             title=title)
 
+
 @app.route('/signup', methods=['GET','POST'])
 def signup():
     if current_user.is_authenticated:
@@ -116,7 +117,7 @@ def account():
                 flash(clicked_button)
                 return redirect(url_for('edit_password'))
         except Exception as e:
-            app.logger.warinng('e')
+            app.logger.warning(e)
     return render_template('account.html',
                             title=title,
                             header=header)
@@ -136,17 +137,19 @@ def edit_password():
             if clicked_button == 'Change Password':
                 flash(clicked_button)
                 student = models.Students.query.filter_by(id=current_user.id).first()
-                if(student):
-                    if check_password_hash(student.password, form.old_password.data): #if the old password is correct
-                        flash(student.password)
-                        login_user(student, remember=True)
-                        student.authenticated = True
 
+                if(student): #if the user is found
+                    if check_password_hash(student.password, form.old_password.data): #compare inputed old password with password on database
+                        if check_password_hash(student.password, form.new_password.data): #check if the new password is the same as old password
+                            raise Exception("New password is the same as old password")
+                        else:
+                            student.password = form.new_password.data
+                             # return redirect(url_for('account'))
+                    else:
+                         raise Exception("You have entered an incorrect old password")
 
-
-                # return redirect(url_for('login'))
         except Exception as e:
-            flash(e)
+            flash(e, 'alert alert-danger')
             app.logger.warning('e')
     return render_template('edit_password.html',
                             title=title,
@@ -165,6 +168,9 @@ def logout():
     app.logger.info('user logged out')
     # user clicks signup button
     return redirect(url_for('login'))
+
+
+
 
 #displays all the modules
 @app.route('/dashboard', methods=['GET','POST'])
@@ -215,8 +221,7 @@ def dashboard():
                             name=current_user.name,
                             id = current_user.id,
                             form=form,
-                            data=data
-                            )
+                            data=data)
 
 @app.route('/add_module', methods=['GET','POST'])
 @login_required
@@ -417,3 +422,5 @@ def view_assessments():
                             module_title = module.title,
                             selected_module = selected_module,
                             data=data)
+
+
