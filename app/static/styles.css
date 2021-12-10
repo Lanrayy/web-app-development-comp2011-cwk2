@@ -1,0 +1,476 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+nav{
+    min-height: 70px;
+}
+
+.page-title{
+    display: flex;
+    justify-content:center;
+    margin-top: 20px;
+}
+
+.navbar-logo{
+    font-family: monospace, sans-serif;
+    font-weight:bolder;
+    padding-left: 30px;
+}
+
+.active{
+    color: red;
+}
+
+/* FLASHED MESSAGES & ALERT STYLES */
+.alert{
+    list-style-type: none;
+    width: 1000px;
+}
+
+/* HOME PAGE STYLES */
+.main-page-container{
+    display: flex;
+    width: 100%;
+    height: 700px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome{
+    font-size: 40px;
+    color: rgb(156, 156, 156);
+}
+
+.to{
+    font-size: 30px;
+    color: rgb(156, 156, 156);
+}
+
+.assessment{
+    font-size: 90px;
+    font-family: monospace;
+    color: #0275d8;
+}
+
+.subtitle{
+    font-size: 30px;
+    color: rgb(156, 156, 156);
+    padding-bottom: 50px;
+}
+
+.homepage-button{
+    margin-top: 30px;
+}
+
+
+/* LOGIN AND SIGNUP STYLES */
+.login-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /*border: 1px solid red;*/
+}
+
+.login-page{
+    display: flex;
+    justify-content: center;
+    /*border: solid 1px red;*/
+}
+
+
+/*DASHBOARD STYLES*/
+/*Each module styles*/
+
+/*container for all the modules*/
+.body{
+    background-color: red;
+}
+
+.module-page-container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        /*border: 3px solid red;*/
+}
+
+.module-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 1000px;
+    min-height: 900px;
+    height: 1000%;
+    /*border: 1px solid rgb(219, 219, 219);*/
+    /*background-color: rgb(219, 219, 219);*/
+}
+
+ .module{
+    /*border-top: 1px solid rgb(163, 163, 163);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    /*border: 1px  solid rgb(163, 163, 163);*/
+    box-shadow: 0 3px 10px rgb(0 0 0 /0.2);
+    border-radius: 20px;
+    /*background-color: rgb(219, 219, 219);*/
+    background-color: rgb(240, 240, 240);
+    width: 450px;
+    height: 300px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.module:hover{
+    background-color: rgb(219, 219, 219);
+}
+
+.add-module-button{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    /*border: 1px solid red;*/
+}
+
+.welcome-message{
+    margin-left: 40px;
+}
+
+.module-info-container{
+    width: 100%;
+    height: 200px;
+    /*border: 3px solid green;*/
+}
+
+.module-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+.info-item{
+    /*border: 1px solid pink;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.module-title{
+    font-size: 20px;
+    /*border: 1px solid red;*/
+}
+
+.module-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;;
+}
+
+
+.module-buttons-container{
+    /*border: 1px solid green;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*ADD MODULE*/
+/* LOGIN AND SIGNUP STYLES */
+.add-module-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /*border: 1px solid red;*/
+}
+
+.add-module-page{
+    display: flex;
+    justify-content: center;
+    /*border: solid 1px red;*/
+}
+
+.back-to-dashboard-button{
+    /*border: solid 1px red;*/
+    width: 500px;
+
+}
+
+.back-to-dashboard-button-container{
+    /*border: solid 1px blue;*/
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+/*ADD ASSESSMENT STYLES*/
+/*ADD MODULE*/
+/* LOGIN AND SIGNUP STYLES */
+.add-assessment-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /*border: 1px solid red;*/
+}
+
+.add-assessment-page{
+    display: flex;
+    justify-content: center;
+    /*border: solid 1px red;*/
+}
+
+.back-to-modules-button{
+    /*border: solid 1px red;*/
+    width: 500px;
+}
+
+.back-to-modules-button-container{
+    /*border: solid 1px blue;*/
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* VIEW ASSESSSMENT PAGE STYLES*/
+.view-assessments-page-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 3px solid red; */
+}
+
+.view-assessment-page{
+    /*border: 1px solid red;*/
+    width: 900px;
+
+}
+
+.assessment-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(163, 163, 163);
+    display: flex;
+    padding: 10px 0px 10px 0px;
+    /*border: 1px solid blue;*/
+}
+
+.assessment-info:last-of-type{
+    border-bottom: 1px solid rgb(163, 163, 163);
+}
+
+.assessment-info:first-of-type{
+    margin-top: 10px;
+}
+
+.assessments-details{
+    padding-top: 5px;
+}
+
+.create-assessment-container{
+    display: flex;
+    align-items: center;
+}
+
+.create-assessment-page{
+    display: flex;
+    justify-content: center;
+    /*border: solid 1px red;*/
+}
+
+
+/*FORM STYLES*/
+.form{
+    width: 500px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-label{
+    font-size: 20px;
+}
+
+.input-field{
+    border: 1px solid gray;
+    border-radius: 3px;
+    height: 30px;
+    padding-left: 8px;
+    width: 100%;
+}
+
+.input-field:focus {
+    border: 2px solid #0275d8;
+}
+
+
+.create-assessment-page{
+    /*border: 1px solid red;*/
+    width: 90%;
+}
+
+/*BUTTON STYLE*/
+.btn{
+    height: 40px;
+}
+
+/*submit button on create assessment page*/
+.submit-btn-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.submit-btn{
+    width: 100%;
+}
+
+.update-btn{
+    width: 180px;
+}
+
+
+/*ASSESSMENT PAGES STYLES*/
+.all-assessments, .completed-assessment, .uncompleted-assessments{
+    border-top: 1px solid rgb(163, 163, 163);
+    display: flex;
+    margin-bottom: 5px;
+}
+
+
+
+/*ACCOUNT STYLES*/
+.main-account-container{
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.account-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;s
+    border: solid 1px red;
+}
+
+.info-box{
+    background-color: rgb(230, 230, 230);
+    width: 500px;
+    height: 500px;
+}
+.page-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+}
+
+
+
+
+
+
+
+
+.all-assessments:last-of-type, .completed-assessment:last-of-type, .uncompleted-assessments:last-of-type{
+    border-bottom: 1px solid rgb(163, 163, 163);
+    margin-bottom: 20px; /* Margin at the bottom of the page */
+}
+
+.uncompleted-assessments:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+.assessment-title{
+    font-size: 20px;
+}
+
+.info{
+    display: flex;
+}
+
+.info-container{
+    width: 75%;
+}
+
+.info-child{
+    margin-right: 15px;
+}
+
+
+
+.create-assessment-page{
+    width: 100%;
+}
+
+
+
+.info-container{
+    padding-left: 30px;
+    /*width: 100%;*/
+}
+
+.update-btn-container{
+    align-items: center;
+    display: flex;
+    justify-content:flex-end;
+    width: 25%;
+}
+
+.update-btn{
+    margin-right: 30px;
+}
+
+
+/* MEDIA QUERY FOR PRINT STYLES*/
+@media print{
+    body{
+        font-size: 4px;
+    }
+    .assessment-page{
+        width: 600px;
+    }
+
+    .btn, .btn-outline-primary, .update-btn{
+        display: none;
+        visibility: hidden;
+    }
+
+    .page-title{
+        height: 30px;
+        font-size: 10px;
+    }
+
+}

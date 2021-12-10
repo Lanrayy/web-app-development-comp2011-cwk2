@@ -12,6 +12,9 @@
     <title> No title specified</title>
     {% endif %}
 
+    <!-- GETTING CONSENT FOR GDPR -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+
     <!-- CSS Link -->
     <link rel="stylesheet" href="{{url_for('static', filename='../static/styles.css')}}">
 
@@ -20,7 +23,7 @@
   </head>
   <body>
       <!-- Navigation Bar -->
-     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
         <a class="navbar-brand navbar-logo" href="/">EZ-ASSESSMENT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,23 +40,32 @@
               <!-- <li class="nav-item active">
                   <a class="nav-link" href="/create_module">Create Module</a>
                 </li> -->
-                <li class="nav-item active">
+                <!-- <li class="nav-item active">
                     <a class="nav-link" href="/view_assessments">View Assessments</a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link" href="/signup">Sign up</a>
-                  </li>
+                  </li> -->
 
-                  <li class="nav-item">
-                      <a class="nav-link" href="/login">Login</a>
-                  </li>
 
+                  {% if current_user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="/account">Account</a>
+                  </li>
                   <li class="nav-item active">
                       <a class="nav-link" href="/logout">Log out</a>
                   </li>
+                  {% else %}
+                  <li class="nav-item">
+                        <a class="nav-link" href="/signup">Sign up</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/login">Login</a>
+                  </li>
+                  {% endif %}
+
             </ul>
         </div>
     </nav>
+    
+
     <!-- TEMPLATE -->
     <div class="template">
       {% block content %}
@@ -62,6 +74,20 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#237afc"
+        },
+        "button": {
+          "background": "#fff",
+          "text": "#237afc"
+        }
+      }
+    });
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

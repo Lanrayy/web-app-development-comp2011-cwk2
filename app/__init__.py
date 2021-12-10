@@ -12,13 +12,15 @@ from flask_login import (
     login_manager
 )
 
-
+import logging
+logging.basicConfig(filename='logs.log', filemode='w', level=logging.DEBUG)
 
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login = LoginManager(app)
-migrate = Migrate(app, db)
-# admin = Admin(app,template_mode='bootstrap3')
+login.login_view = 'login'
+login.login_message_category = 'info'
+migrate = Migrate(app, db, render_as_batch=True)
 from app import views, models

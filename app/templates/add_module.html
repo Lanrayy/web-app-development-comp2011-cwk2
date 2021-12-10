@@ -1,27 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
+<div >{% with messages = get_flashed_messages() %}
+        {% if messages %}
+         <ul>
+          {% for message in messages %}
+            <li class="alert alert-success">{{ message }} </li>
+          {% endfor %}
+         </ul>
+       {% endif %}
+     {% endwith %}
+</div>
 <div class="page-title">
     <h1>Add Module</h1>
     <p>Please create a module by filling in your assessment details below.</p>
+
+</div>
+<div class="back-to-dashboard-button-container">
+    <form method="post" name="completed" class="back-to-dashboard-button" >
+        <button type="submit" name="button" value='back-to-dashboard' class="btn btn-outline-danger update-btn"> < Back to Dashboard</button>
+    </form>
 </div>
 
-<form method="post" name="completed">
-    <button type="submit" name="button" value='back-to-dashboard' class="btn btn-outline-primary update-btn"> < Back to Modules</button>
-</form>
-
-<div class="create-module-container">
-
-    <div >{% with messages = get_flashed_messages() %}
-            {% if messages %}
-             <ul>
-              {% for message in messages %}
-                <li class="alert alert-success">{{ message }} </li>
-              {% endfor %}
-             </ul>
-           {% endif %}
-         {% endwith %}
-    </div>
-    <div class="create-module-page">
+<div class="add-module-container">
+    <div class="add-module-page">
 
         <form method="post" name="create_module" class="form">
             <!-- Prevents Attacks -->
@@ -63,14 +64,14 @@
             <div class="form-group">
                 <p class="form-label">Number of Credits</p>
                 <p>
-                    {{ form.num_of_credits(class_="input-field description-field") }}
+                    {{ form.num_of_credits(class_="input-field") }}
                     {% for error in form.num_of_credits.errors %}
                         <span style="color:red">[{{ error }}]</span>
                     {% endfor %}
                 </p>
             </div>
             <div class="submit-btn-container">
-                <input type="submit" value="Submit" id=5 class="btn btn-outline-primary submit-btn">
+                <input name='submit' type="submit" value="Submit" id=5 class="btn btn-outline-primary submit-btn">
             </div>
 
 

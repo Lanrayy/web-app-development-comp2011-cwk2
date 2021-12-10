@@ -5,6 +5,7 @@ from wtforms import TextAreaField
 from wtforms import DateField
 from wtforms import SubmitField
 from wtforms import PasswordField
+from wtforms import ValidationError
 
 from wtforms.validators import DataRequired
 from wtforms.validators import Length
@@ -26,13 +27,30 @@ class AssessmentForm(Form):
 
 class SignUpForm(Form):
     name = TextField('name', validators=[DataRequired()])
-    username = TextField('username', validators=[DataRequired()])
-    password1 = PasswordField('password1', validators=[DataRequired()])
-    password2 = PasswordField('password2', validators=[EqualTo('password1'), DataRequired()]) #makes sure password1 equals password2
+    username = TextField('username', validators=[DataRequired(), Length(min=2, max=20)])
+    password = PasswordField('password1', validators=[DataRequired()])
+    password2 = PasswordField('password2', validators=[EqualTo('password'), DataRequired()]) #makes sure password1 equals password2
+
+    #validating that the username is unique
+    def validate_username(self, username):
+        student = models.Students.query.filter_by(username=username.data).first()
+        if student:
+            raise ValidationError('Username taken! Please choose a different username')
 
 class LoginForm(Form):
-    username = TextField('name', validators=[DataRequired()])
-    password = PasswordField('score', validators=[DataRequired()])
+    username = TextField('username', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired()])
 
 class ButtonForm(Form):
     submit = SubmitField('Submit')
+
+class PasswordForm(Form):
+    old_password = PasswordField('old_password', validators=[DataRequired()])
+    new_password = PasswordField('new_password', validators=[DataRequired()])
+    confirm_password = PasswordField('confirm_password', validators=[EqualTo('new_password'), DataRequired()])
+
+    #validating that the username is unique
+    def validate_password(self, new_password):
+        student = models.Students.query.filter_by(id=current_user.id).first()
+        if check_password_hash(student.password, new_password):
+            raise ValidationError('Error! New password is the same as old password')

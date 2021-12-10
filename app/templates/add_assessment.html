@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
+<div >{% with messages = get_flashed_messages() %}
+        {% if messages %}
+         <ul>
+          {% for message in messages %}
+            <li class="alert alert-success">{{ message }} </li>
+          {% endfor %}
+         </ul>
+       {% endif %}
+     {% endwith %}
+</div>
 <div class="page-title">
-    <h1>Student Name: {{student_id}}</h1>
+    <!-- <h1>Student Name: {{student_id}}</h1> -->
     <h1>Create Assessment for {{selected_module}}</h1>
     <p>Please create a new assessment by filling in your assessment details below.</p>
 </div>
+<div class="back-to-modules-button-container">
+    <form method="post" name="completed" class="back-to-modules-button">
+        <button type="submit" name="back_button" value='back-to-module' class="btn btn-outline-danger update-btn"> < Back to {{selected_module}}</button>
+    </form>
+</div>
 
-<form method="post" name="completed">
-    <button type="submit" name="back_button" value='back-to-module' class="btn btn-outline-primary update-btn"> < Back to {{selected_module}}</button>
-</form>
+<div class="add-assessment-container">
 
-<div class="create-assessment-container">
-        <div >{% with messages = get_flashed_messages() %}
-                {% if messages %}
-                 <ul>
-                  {% for message in messages %}
-                    <li class="alert alert-success">{{ message }} </li>
-                  {% endfor %}
-                 </ul>
-               {% endif %}
-             {% endwith %}
-        </div>
-    <div class="create-assessment-page">
+    <div class="add-assessment-page">
 
         <form method="post" name="create_assessment" class="form">
             <!-- Prevents Attacks -->
@@ -57,7 +59,7 @@
             </div>
 
             <div class="form-group">
-                <p class="form-label">Worth(How much is this assessment worth%)</p>
+                <p class="form-label">How much is this assessment worth(%)</p>
                 <div>
                     {{ form.assessment_worth(class_="input-field") }}
                     {% for error in form.assessment_worth.errors %}

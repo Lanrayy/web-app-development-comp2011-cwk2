@@ -1,47 +1,49 @@
 {% extends 'base.html' %}
 {% block content %}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+         <ul>
+          {% for message in messages %}
+            <li class="alert alert-success">{{ message }} </li>
+          {% endfor %}
+         </ul>
+       {% endif %}
+     {% endwith %}
 <div class="page-title">
     <h1>Dashboard</h1>
-    <h1>Welcome back {{name}}</h1>
+
 </div>
-<form method="post" name="completed">
-    <button type="submit" name="button" value='add-module' class="btn btn-outline-primary update-btn">Add module</button>
-</form>
-<div class="assessments-page-container">
-    <div >{% with messages = get_flashed_messages() %}
-            {% if messages %}
-             <ul>
-              {% for message in messages %}
-                <li class="alert alert-success">{{ message }} </li>
-              {% endfor %}
-             </ul>
-           {% endif %}
-         {% endwith %}
-    </div>
-    <h2>Modules</h2>
-    <div class="assessment-page">
+
+<div class="module-page-container">
+    <!-- <h2>Modules</h2> -->
+    <form method="post" name="completed" class="add-module-button">
+        <h3 class="welcome-message">Welcome, {{name}}</h3>
+        <button type="submit" name="button" value='add-module' class="btn btn-outline-primary update-btn">Add module</button>
+    </form>
+
+    <div class="module-container">
+
         {% for p in data %}
-         <div class="uncompleted-assessments" value={{p.module_code}}>
-             <div class="info-container">
-                 <div class="assessment-title">
-                     {{ p.title }}
+         <div class="module" value={{p.module_code}}>
+             <div class="module-info-container">
+                 <div class="module-title">
+                     <strong> {{ p.title }} </strong>
+                      <p>{{p.module_code}}   |   {{p.credit}} credits | {{p.num_of_assessments }} assessments  </p>
                  </div>
-                 <div>
-                     <div class="assessments-info">
-                        <p> <strong> Module Code:</strong> {{p.module_code}} |
-                            <strong>Number of Assessments:</strong> {{ p.num_of_assessments }}  |
-                            <strong>Average:</strong> {{p.average}}% </p>
-                            <strong> Student ID</strong> {{p.student_id}}
+                 <div class="module-info">
+                     <div class="info-item">
+                         <h1>{{p.average}}%</h1>  <p>Average:</p>
                      </div>
-                     <div class="description">
-                         <p> <strong> Description:</strong> <br> {{ p.description }}</p>
+                     <div class="info-item">
+                         <h1>{{p.average}}%</h1>  <p>Average:</p>
                      </div>
                  </div>
              </div>
-             <div class="update-btn-container">
-                <form method="post" name="completed">
-                    <button type="submit" name="button" value='{{p.module_code}}' class="btn btn-outline-primary update-btn">View Module {{p.module_code}}</button>
-                    <button type="submit" name="button" value='delete-module-{{p.module_code}}' class="btn btn-outline-danger update-btn">Delete Module {{p.module_code}}</button>
+
+             <div>
+                <form method="post" name="completed" class="module-buttons-container">
+                    <button type="submit" name="button" value='{{p.module_code}}' class="btn btn-outline-primary update-btn">View Module</button>
+                    <button type="submit" name="button" value='delete-module-{{p.module_code}}' class="btn btn-outline-danger update-btn">Delete Module</button>
                </form>
             </div>
          </div>

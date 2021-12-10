@@ -17,7 +17,7 @@ enrollment = db.Table('enrollment', db.Model.metadata,
 class Students(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(1000))
-    username = db.Column(db.String(1000), index=True, nullable=False)
+    username = db.Column(db.String(1000), index=True, nullable=False, unique=True) #make this unique equals true
     password = db.Column(db.String(1000), nullable= False)
 
     # def get_id(self):
@@ -28,7 +28,7 @@ class Modules(db.Model):
     module_code = db.Column(db.String(1000))
     title = db.Column(db.String(1000), index=True)
     num_of_assessments = db.Column(db.Integer)
-    average = db.Column(db.Integer)
+    average = db.Column(db.Float, default=0.0)
     credit = db.Column(db.Integer)
     student_id = db.Column(db.String(1000), db.ForeignKey('students.id'))
     modules = db.relationship('Students', secondary='enrollment', backref=db.backref('modules'), lazy='dynamic') #create a back reference in the students table

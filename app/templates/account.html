@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="main-account-container">
+
+    <div class="info-box">
+        <div class="page-title">
+            <h1>Your Account</h1>
+            <p>You can edit your details here</p>
+        </div>
+
+        <div class="account-info">
+            <h2 class="">Your name: {{current_user.name}}</h2>
+            <p class="text-secondary">Username: {{current_user.username}}</p>
+            <form method="post" name="completed" class="edit-password">
+                <p>Want to change your password?</p>
+                <button type="submit" name="button" value='change-password' class="btn btn-outline-primary update-btn">Click here</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

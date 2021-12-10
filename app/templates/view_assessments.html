@@ -1,42 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="page-title">
-    <h1>Welcome {{name}}</h1>
-    <h1>Selected: {{selected_module}}</h1>
+<div >{% with messages = get_flashed_messages() %}
+        {% if messages %}
+         <ul>
+          {% for message in messages %}
+            <li class="alert alert-success">{{ message }} </li>
+          {% endfor %}
+         </ul>
+       {% endif %}
+     {% endwith %}
 </div>
-<div class="assessments-page-container">
+<div class="page-title">
+    <h1>{{module_title}}: {{selected_module}}</h1>
+</div>
+<div class="view-assessments-page-container">
     <form method="post" name="completed">
-        <button type="submit" name="button" value='back-to-dashboard' class="btn btn-outline-primary update-btn"> < Back to Dashboard</button>
+        <button type="submit" name="button" value='back-to-dashboard' class="btn btn-outline-danger update-btn"> < Back to Dashboard</button>
         <button type="submit" name="button" value='add-assessment' class="btn btn-outline-primary update-btn">Add Assessment</button>
-
     </form>
-    <div >{% with messages = get_flashed_messages() %}
-            {% if messages %}
-             <ul>
-              {% for message in messages %}
-                <li class="alert alert-success">{{ message }} </li>
-              {% endfor %}
-             </ul>
-           {% endif %}
-         {% endwith %}
-    </div>
-    <div class="assessment-page">
+
+    <div class="view-assessment-page">
         {% for p in data %}
-         <div class="uncompleted-assessments">
+         <div class="assessment-info">
              <div class="info-container">
                  <div class="assessment-title">
                      {{ p.title }}
                  </div>
-                 <div>
-                     <div class="assessments-info">
+                     <div class="assessments-details">
                         <p> <strong> Score:</strong> {{p.score}} | <strong> Total Marks:</strong> {{p.total_marks}} |  <strong>Score Percent:</strong> {{p.score_percent}}% | <strong>Worth:</strong> {{ p.assessment_worth }}%   </p>
                      </div>
-                     <div class="description">
-                         <p> <strong> Module code:</strong> <br> {{ p.module_code }}</p>
-                     </div>
-                 </div>
              </div>
-             <form method="post" name="completed">
+
+             <form method="post" name="completed" class="delete-assessment-button">
                  <button type="submit" name="button" value='delete-assessment-{{p.title}}' class="btn btn-outline-danger update-btn">Delete Assessment</button>
             </form>
          </div>
