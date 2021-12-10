@@ -335,12 +335,12 @@ def add_assessment():
                 output = f"Your current grade is {weighted_average}%."
                 output += f"You have {numberOfAssessmentsLeft} assessments left worth a total of {worthOfFinalAssessment}%."
                 output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
-
-
                 flash(output, 'alert alert-info')
+
             # if user clicks a button, check if the button is the back button
-            clicked = request.form['back_button']
-            if clicked == 'back-to-module':
+            clicked = request.form['button']
+            flash(clicked)
+            if clicked == 'back-to-modules':
                 flash(clicked, 'alert alert-info')
                 return redirect(url_for('view_assessments'))
         except Exception as e:

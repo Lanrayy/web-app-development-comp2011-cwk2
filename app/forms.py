@@ -10,6 +10,7 @@ from wtforms import ValidationError
 from wtforms.validators import DataRequired
 from wtforms.validators import Length
 from wtforms.validators import EqualTo
+from app import models
 
 # form to add modules
 class ModuleForm(Form):
