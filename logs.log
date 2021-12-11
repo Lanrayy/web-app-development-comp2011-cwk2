@@ -1,4 +1,0 @@
-INFO:werkzeug:127.0.0.1 - - [11/Dec/2021 18:59:28] "[32mGET /account HTTP/1.1[0m" 302 -
-INFO:app:login route request
-INFO:werkzeug:127.0.0.1 - - [11/Dec/2021 18:59:28] "GET /login?next=%2Faccount HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [11/Dec/2021 18:59:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -

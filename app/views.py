@@ -16,7 +16,7 @@ def index():
         return redirect(url_for('dashboard'))
 
     title = "Homepage"
-    form=ButtonForm()
+    
     if request.method == 'POST':
         try:
             #get the value of the button clicked
