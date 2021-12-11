@@ -28,8 +28,8 @@ def index():
             elif clicked_button == 'signup':
                 flash(clicked_button, 'alert alert-info')
                 return redirect(url_for('signup'))
-        except:
-            flash("Error! Unable to perform action. Try again", 'alert alert-danger')
+        except Exception as e:
+            flash(e, 'alert alert-danger')
     return render_template('index.html',
                             title=title)
 
@@ -58,11 +58,11 @@ def signup():
                 flash('Succesfully submitted data', 'alert alert-info')
                 # return redirect(url_for('login')) #redirect to signup
 
-            if form.errors!= {}: #if there are no erros from the validators
+            if form.errors!= {}: #if there are no errors from the validators
                 for err_message in form.errors.values():
-                    app.logger.info('error! Unable to create account')
+                    app.logger.info(err_message)
                     flash(f'Error! Unable to create account', "alert alert-danger")
-                    # return redirect(url_for('dashboard'))
+
         except Exception as e:
             flash(e, 'alert alert-danger')
     return render_template('signup.html',
@@ -74,30 +74,31 @@ def signup():
 @app.route('/login', methods=['GET','POST'])
 def login():
     app.logger.info('login route request')
-    if current_user.is_authenticated:
-        app.logger.info('user already logged in! redireted to dashboard')
-        return redirect(url_for('dashboard'))
-
     title = "Login"
     header = "Login"
     form = LoginForm()
     data = models.Students.query.all()
+    if current_user.is_authenticated:
+        app.logger.info('user already logged in! redireted to dashboard')
+        return redirect(url_for('dashboard'))
 
-    student = models.Students.query.filter_by(username=form.username.data).first()
+    if request.method == 'POST':
+        try:
+            if form.validate_on_submit():
+                student = models.Students.query.filter_by(username=form.username.data).first()
+                if(student):
+                    if check_password_hash(student.password, form.password.data):
+                        flash(student.password, 'alert alert-info')
+                        login_user(student, remember=True)
+                        student.authenticated = True
+                        app.logger.info('user authenticated. logging in...')
+                        return redirect(url_for('dashboard'))
+                    else:
+                        raise Exception('Invalid username or password! Please try again.')
+        except Exception as e:
+            app.logger.error(e)
+            flash(e, 'alert alert-danger')
 
-    if(student):
-        if check_password_hash(student.password, form.password.data):
-            flash(student.password, 'alert alert-info')
-            login_user(student, remember=True)
-            student.authenticated = True
-
-            app.logger.info('user authenticated. logging in...')
-            return redirect(url_for('dashboard'))
-
-        else:
-            app.logger.error('invalid username or password! user not authenticated!')
-            flash('Please check your login details and try again.',  'alert alert-danger')
-    # user clicks signup button
     return render_template('login.html',
                             title=title,
                             header=header,
@@ -105,6 +106,7 @@ def login():
                             form=form)
 
 @app.route('/account', methods=['GET','POST'])
+@login_required
 def account():
     title="Account"
     header="Account"
@@ -163,16 +165,11 @@ def edit_password():
 @app.route('/logout', methods=['GET','POST'])
 def logout():
     app.logger.info('logout route request')
-    title="Log out"
-    header="Log out"
-    form=LoginForm()
     session.clear()
     logout_user()
     app.logger.info('user logged out')
-    # user clicks signup button
+    flash('Successfully logged out!', 'alert alert-danger')
     return redirect(url_for('login'))
-
-
 
 
 #displays all the modules
@@ -183,11 +180,11 @@ def dashboard():
     title = "Dashboard"
     header = "Dashboard"
     form=ButtonForm()
-    # flash(selected_module)
+
     #check if request methos is POST
     if request.method == 'POST':
         try:
-            #get the button value & convert it to an integer
+            #get the button value
             clicked = request.form['button']
             flash(clicked, 'alert alert-info')
             flash('delete-module' in clicked, 'alert alert-info')
@@ -199,7 +196,7 @@ def dashboard():
                 if 'delete-module' in clicked: # deleting the module
                     app.logger.info('user clicked delete module button...')
                     flash('deleting module', 'alert alert-info')
-                    module_code = clicked[14:]
+                    module_code = clicked[14:] #get substring containing only module code
                     #get all modules
                     module = models.Modules.query.filter_by(student_id=current_user.id).filter_by(module_code=module_code).first()
                     assessments = models.Assessments.query.filter_by(module_code=module_code).filter_by(student_id=current_user.id).all()
@@ -213,7 +210,7 @@ def dashboard():
                     session['selected_module'] = clicked #you can use AJAX as well to pass data betwen the pages
                     app.logger.info(f'user clicked view module button: viewing module {clicked}')
                     return redirect(url_for('view_assessments'))
-        except:
+        except Exception as e:
             app.logger.critical(e)
             flash("Error! Unable to perform action. Try again", 'alert alert-danger')
 
@@ -233,21 +230,22 @@ def add_module():
     title = "Add Module"
     header = "Add Module"
     form = ModuleForm()
-    user = current_user
 
     if request.method == 'POST':
         try:
             #check if back to dashboard button clicked
+            clicked = request.form['button']
+            if clicked == 'back-to-dashboard':
+                flash(clicked, 'alert alert-info')
+                return redirect(url_for('dashboard'))
+            
             if form.validate_on_submit():
                 #get a list of all the modules
                 data = current_user.modules
                 #check if module code already exists
                 for module in data:
                     if module.module_code == form.module_code.data:
-                        app.logger.info(f'unable to add module! module already exists!')
-                        flash("Unable to add! Module already exists! Please add a different module", 'alert alert-info')
-                        {module.title}
-                        return redirect(url_for('add_module'))
+                        raise Exception(f'Unable to add! Module already exists! Please add a different module')
 
                 #This code will run if there are no duplicate modules
                 p = models.Modules( title=form.title.data,
@@ -258,14 +256,10 @@ def add_module():
                 db.session.add(p) # add to database
                 current_user.modules.append(p)
                 db.session.commit()
-                flash("Successfully added", 'alert alert-info')
+                flash("Module Successfully added", 'alert alert-info')
 
-            clicked = request.form['button']
-            if clicked == 'back-to-dashboard':
-                flash(clicked, 'alert alert-info')
-                return redirect(url_for('dashboard'))
         except Exception as e:
-            app.logger.critical(e)
+            app.logger.error(e)
             flash(e, 'alert alert-danger')
 
     return render_template('add_module.html',
@@ -280,16 +274,17 @@ def add_assessment():
     title = "Add Assessment"
     header = "Add Assessment"
     form = AssessmentForm()
-    user = current_user
     selected_module = session.get('selected_module', None)
 
     if request.method == 'POST':
+        # if user clicks a button, check if the button is the back button
+        clicked = request.form['button']
+        flash(clicked)
+        if clicked == 'back-to-modules':
+            flash(clicked, 'alert alert-info')
+            return redirect(url_for('view_assessments'))
         try:
             if form.validate_on_submit(): #check if the form validates
-                if form.score.data > form.total_marks.data:#check marks is less than worth
-                    app.logger.error('Marks greater than worth')
-                    raise Exception('Your score is greater than total marks')
-
                 #calculate percentage
                 percent = (form.score.data / form.total_marks.data)* 100
 
@@ -335,13 +330,6 @@ def add_assessment():
                 output += f"You have {numberOfAssessmentsLeft} assessments left worth a total of {worthOfFinalAssessment}%."
                 output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
                 flash(output, 'alert alert-info')
-
-            # if user clicks a button, check if the button is the back button
-            clicked = request.form['button']
-            flash(clicked)
-            if clicked == 'back-to-modules':
-                flash(clicked, 'alert alert-info')
-                return redirect(url_for('view_assessments'))
         except Exception as e:
             app.logger.critical(e)
             flash(e, 'alert alert-danger')
@@ -382,12 +370,12 @@ def view_assessments():
 
                 if count >= module.num_of_assessments:
                     app.logger.info('user has added the maximum number of assessments for module {selected_module}')
-                    raise Exception('You have added the maximum number of assessment for this module')
+                    raise Exception('You have added the maximum number of assessments for this module')
                 else:
                     return redirect(url_for('add_assessment'))
             elif clicked == 'back-to-dashboard':
                 return redirect(url_for('dashboard'))
-            else:#deleting assessment
+            else: #deleting assessment
                 if 'delete-assessment' in clicked:
                     flash('deleting assessment', 'alert alert-info')
                     title = clicked[18:]

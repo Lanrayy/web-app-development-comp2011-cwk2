@@ -7,10 +7,10 @@ from wtforms import SubmitField
 from wtforms import PasswordField
 from wtforms import ValidationError
 
-from wtforms.validators import DataRequired
-from wtforms.validators import Length
-from wtforms.validators import EqualTo
+from wtforms.validators import DataRequired,EqualTo, NumberRange, Length
 from app import models
+from flask import flash, session
+from flask_login import current_user
 
 # form to add modules
 class ModuleForm(Form):
@@ -24,7 +24,23 @@ class AssessmentForm(Form):
     title = TextField('title', validators=[DataRequired()])
     score = IntegerField('score', validators=[DataRequired()])
     total_marks = IntegerField('total_marks', validators=[DataRequired()])
-    assessment_worth = IntegerField('assessment_worth', validators=[DataRequired()])
+    assessment_worth = IntegerField('assessment_worth',
+                                    validators=[
+                                                DataRequired(), 
+                                                NumberRange(min=0 , max=100,
+                                                            message='Must be between 0 and 100')])
+
+    #validating assessment name is unique
+    def validate_title(self, title):
+        module_code = session['selected_module']
+        assessment = models.Assessments.query.filter_by(student_id=current_user.id).filter_by(module_code=module_code).filter_by(title=title.data).first()
+        if assessment:
+            raise ValidationError('Try Again! You have already added an assessment with this title for this module!')
+
+    def validate_score(self, score):
+        if self.score.data > self.total_marks.data:
+            raise ValidationError('Your score is greater than total marks')
+
 
 class SignUpForm(Form):
     name = TextField('name', validators=[DataRequired()])
@@ -34,6 +50,7 @@ class SignUpForm(Form):
 
     #validating that the username is unique
     def validate_username(self, username):
+        flash('Validating User Name')
         student = models.Students.query.filter_by(username=username.data).first()
         if student:
             raise ValidationError('Username taken! Please choose a different username')
