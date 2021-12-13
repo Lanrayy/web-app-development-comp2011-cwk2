@@ -266,7 +266,7 @@ def add_module():
                 db.session.add(p) 
                 current_user.modules.append(p)
                 db.session.commit()
-                flash("Module successfully added", 'alert alert-info')
+                flash("Module successfully added", 'alert alert-success')
                 return redirect(url_for('dashboard'))     
 
         except Exception as e:
