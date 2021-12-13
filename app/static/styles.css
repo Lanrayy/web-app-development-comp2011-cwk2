@@ -125,6 +125,9 @@ ul{
 
 /*DASHBOARD STYLES*/
 /*Each module styles*/
+a{
+    
+}
 
 /*container for all the modules*/
 .body{
@@ -170,10 +173,14 @@ ul{
     height: 300px;
     margin: 10px;
     padding: 20px;
+    color: black;
+    text-decoration: red;
+    text-decoration-color: black;
 }
 
 .module:hover{
     background-color: rgb(219, 219, 219);
+    color: black;
 }
 
 .add-module-button{

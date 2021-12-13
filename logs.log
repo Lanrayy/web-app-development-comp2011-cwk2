@@ -97,3 +97,413 @@ INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:14:28] "[32mPOST /add_module HTTP/1
 INFO:app:dashboard route request
 INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:14:28] "GET /dashboard HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:14:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:17:10] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:17:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:17:47] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:17:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:18:50] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:18:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:27] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:29] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:32] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:35] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:49] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:19:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:25:14] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:25:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:25:41] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:25:41] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:25:54] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:25:54] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:12] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:29] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked view module button: viewing module COMP 2421
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:31] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:31] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:31] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:33] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:33] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:26:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:25] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:38] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:39] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:39] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:40] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:41] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:27:41] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:04] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:17] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:26] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:27] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:29] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:30] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:28:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:04] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:05] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:06] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:06] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:07] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:08] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:08] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked delete module button...
+INFO:app:module "COMP 2011 Module 2" successfully deleted
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:24] "POST /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:29:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:37] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:38] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:40] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:40] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:41] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:41] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:42] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:42] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:45] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:48] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:48] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:49] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:50] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:50] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:30:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:32:23] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:32:23] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:32:24] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:32:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:10] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:21] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:22] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:22] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:36] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:36] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:51] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:51] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:52] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:53] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:33:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:02] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:02] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:03] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:03] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:20] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:20] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:39] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:39] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:52] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:34:52] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:02] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:02] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:03] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:03] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:04] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:04] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked add module button. redirecting to add module page...
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:05] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:05] "GET /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:16] "POST /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:17] "[32mPOST /add_module HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:17] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:18] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:19] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:19] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:19] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked delete module button...
+INFO:app:module "COMP 2421 Module 1" successfully deleted
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:20] "POST /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:20] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:21] "[35m[1mGET /view_assessments HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:21] "GET /view_assessments?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:21] "GET /view_assessments?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:21] "GET /view_assessments?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:21] "GET /view_assessments?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:21] "GET /view_assessments?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:30] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked delete module button...
+INFO:app:module "COMP 2011 Module 2" successfully deleted
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:31] "POST /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:31] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked add module button. redirecting to add module page...
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:33] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:33] "GET /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:48] "POST /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:51] "[32mPOST /add_module HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:51] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked add module button. redirecting to add module page...
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:53] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:53] "GET /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:35:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:03] "POST /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:03] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:05] "[32mPOST /add_module HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:05] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:06] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:07] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:07] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:07] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:08] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:08] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:08] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:09] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:09] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:09] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:10] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:10] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:11] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:11] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:11] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:12] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:12] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:add assessment request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:13] "GET /add_assessment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:13] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add assessment request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:25] "POST /add_assessment HTTP/1.1" 200 -
+INFO:app:add assessment request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:25] "POST /add_assessment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add assessment request
+INFO:app:add assessment request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:31] "[32mPOST /add_assessment HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:31] "POST /add_assessment HTTP/1.1" 200 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:32] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:35] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:add assessment request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:35] "GET /add_assessment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:36] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add assessment request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:46] "POST /add_assessment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add assessment request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:48] "[32mPOST /add_assessment HTTP/1.1[0m" 302 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:48] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:50] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:50] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:51] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:52] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:52] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:53] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:54] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:55] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:57] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:36:57] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:00] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:07] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:11] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:14] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:16] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:16] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:17] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:18] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:18] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:37:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:38:08] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:38:08] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:38:09] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:38:09] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:38:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:17] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked view module button: viewing module COMP 2421
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:20] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:20] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:20] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:21] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:21] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:app:user clicked view module button: viewing module COMP 2011
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:22] "[32mPOST /dashboard HTTP/1.1[0m" 302 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:22] "GET /view_assessments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:view assessment route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:23] "[32mPOST /view_assessments HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:23] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 18:39:23] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
