@@ -14,6 +14,7 @@ import logging
 def index():
     app.logger.info('index route request')
     if current_user.is_authenticated:
+        app.logger.info('user already authenticated. redirecting to dashboard.')
         return redirect(url_for('dashboard'))
 
     title = "Homepage"
@@ -24,12 +25,13 @@ def index():
             clicked_button = request.form['button']
             #check which button was clicked
             if clicked_button == 'login':
-                flash(clicked_button, 'alert alert-info')
+                # flash(clicked_button, 'alert alert-info')
                 return redirect(url_for('login'))
             elif clicked_button == 'signup':
-                flash(clicked_button, 'alert alert-info')
+                # flash(clicked_button, 'alert alert-info')
                 return redirect(url_for('signup'))
         except Exception as e:
+            app.logger.error(e)
             flash(e, 'alert alert-danger')
     return render_template('index.html',
                             title=title)
@@ -38,7 +40,7 @@ def index():
 @app.route('/signup', methods=['GET','POST'])
 def signup():
     if current_user.is_authenticated:
-        app.logger.info('user already logged in! redireted to dashboard')
+        app.logger.info('user already logged in! redirected to dashboard')
         return redirect(url_for('dashboard'))
     app.logger.info('signup route request')
     logout_user()
@@ -56,8 +58,8 @@ def signup():
                                     password = generate_password_hash(password, method='sha256'))
                 db.session.add(p) # add to database
                 db.session.commit() # commit data
-                flash('Succesfully submitted data', 'alert alert-info')
-                # return redirect(url_for('login')) #redirect to signup
+                flash('Sign up successful! Please login!', 'alert alert-success')
+                return redirect(url_for('login')) #redirect to login page
 
             if form.errors!= {}: #if there are no errors from the validators
                 for err_message in form.errors.values():
@@ -65,6 +67,7 @@ def signup():
                     flash(f'Error! Unable to create account', "alert alert-danger")
 
         except Exception as e:
+            app.logger.error(e)
             flash(e, 'alert alert-danger')
     return render_template('signup.html',
                             title=title,
@@ -80,7 +83,7 @@ def login():
     form = LoginForm()
     data = models.Students.query.all()
     if current_user.is_authenticated:
-        app.logger.info('user already logged in! redireted to dashboard')
+        app.logger.info('user already logged in! redirected to dashboard')
         return redirect(url_for('dashboard'))
 
     if request.method == 'POST':
@@ -89,13 +92,13 @@ def login():
                 student = models.Students.query.filter_by(username=form.username.data).first()
                 if(student):
                     if check_password_hash(student.password, form.password.data):
-                        flash(student.password, 'alert alert-info')
+                        # flash(student.password, 'alert alert-info')
                         login_user(student, remember=form.remember.data)
                         student.authenticated = True
                         app.logger.info('user authenticated. logging in...')
                         return redirect(url_for('dashboard'))
                     else:
-                        raise Exception('Invalid username or password! Please try again.')
+                        raise Exception('Invalid username or password! Please try again!')
         except Exception as e:
             app.logger.error(e)
             flash(e, 'alert alert-danger')
@@ -122,6 +125,7 @@ def account():
             elif clicked_button == 'logout':
                 return redirect(url_for('logout'))
         except Exception as e:
+            flash(e, 'alert alert-danger')
             app.logger.warning(e)
     return render_template('account.html',
                             title=title,
@@ -136,7 +140,7 @@ def edit_password():
     if request.method == 'POST':
         #get the value of the button clicked
         clicked_button = request.form['button']
-        flash(clicked_button, 'alert alert-danger')
+        # flash(clicked_button, 'alert alert-danger')
         #check which button was clicked
         try:
             if clicked_button == 'back-to-account':
@@ -150,13 +154,14 @@ def edit_password():
                         else:
                             student.password = generate_password_hash(form.new_password.data , method='sha256')
                             db.session.commit()
-                            flash('Successfully changes password', 'alert alert-success')
+                            app.logger.info('password changed successful')
+                            flash('Password changed successfully', 'alert alert-success')
                             return redirect(url_for('account'))
                     else:
                         raise Exception("You have entered an incorrect old password")
         except Exception as e:
             flash(e, 'alert alert-danger')
-            app.logger.warning('e')
+            app.logger.warning(e)
     return render_template('edit_password.html',
                             title=title,
                             header=header,
@@ -169,7 +174,7 @@ def logout():
     session.clear()
     logout_user()
     app.logger.info('user logged out')
-    flash('Successfully logged out!', 'alert alert-danger')
+    flash('Logged out successfully!', 'alert alert-danger')
     return redirect(url_for('login'))
 
 
@@ -187,16 +192,15 @@ def dashboard():
         try:
             #get the button value
             clicked = request.form['button']
-            flash(clicked, 'alert alert-info')
-            flash('delete-module' in clicked, 'alert alert-info')
+            # flash(clicked, 'alert alert-info')
             if clicked == 'add-module':
-                flash(clicked, 'alert alert-info')
+                # flash(clicked, 'alert alert-info')
                 app.logger.info('user clicked add module button. redirecting to add module page...')
                 return redirect(url_for('add_module'))
             else: # view module
                 if 'delete-module' in clicked: # deleting the module
                     app.logger.info('user clicked delete module button...')
-                    flash('deleting module', 'alert alert-info')
+                    
                     module_code = clicked[14:] #get substring containing only module code
                     #get all modules
                     module = models.Modules.query.filter_by(student_id=current_user.id).filter_by(module_code=module_code).first()
@@ -205,15 +209,16 @@ def dashboard():
                         db.session.delete(assessment)
                     db.session.delete(module)
                     db.session.commit()
-                    app.logger.info(f'module "{module.module_code} {module.title}" successfully deleted')
+                    flash('Module deleted successfully', 'alert alert-success')
+                    app.logger.info(f'module "{module.module_code}:{module.title}" successfully deleted')
                 else: # viewing the module
-                    flash(clicked, 'alert alert-info')
+                    # flash(clicked, 'alert alert-info')
                     session['selected_module'] = clicked #you can use AJAX as well to pass data betwen the pages
                     app.logger.info(f'user clicked view module button: viewing module {clicked}')
                     return redirect(url_for('view_assessments'))
         except Exception as e:
             app.logger.critical(e)
-            flash("Error! Unable to perform action. Try again", 'alert alert-danger')
+            flash(e, 'alert alert-danger')
 
     data = models.Modules.query.filter_by(student_id=current_user.id).all()
     return render_template('dashboard.html',
@@ -240,30 +245,29 @@ def add_module():
             if clicked == 'Back to dashboard':
                 flash(clicked, 'alert alert-info')
                 return redirect(url_for('dashboard'))
-            else:
-                flash(clicked, 'alert alert-success')
 
             # if form.validate_on_submit():
-                if clicked == 'Add module':
-                    # get a list of all the modules
-                    data = current_user.modules
-                    # check if module code already exists
-                    for module in data:
-                        if module.module_code == form.module_code.data:
-                            raise Exception(f'Please add a different module! You have already added a module with the same code!')
+            if clicked == 'Add module':
+                # get a list of all the modules
+                data = current_user.modules
+                # check if module code already exists
+                for module in data:
+                    if module.module_code == form.module_code.data:
+                        raise Exception(f'Please add a different module! You have already added a module with the same code!')
 
-                    #This code will run if there are no duplicate modules
-                    p = models.Modules( title=form.title.data,
-                                        credit = form.num_of_credits.data,
-                                        num_of_assessments=form.num_of_assessments.data,
-                                        completed_assessments = 0,
-                                        student_id = current_user.id,
-                                        module_code = form.module_code.data)
-                    # add to database
-                    db.session.add(p) 
-                    current_user.modules.append(p)
-                    db.session.commit()
-                    flash("Module Successfully added", 'alert alert-info')     
+                #This code will run if there are no duplicate modules
+                p = models.Modules( title=form.title.data,
+                                    credit = form.num_of_credits.data,
+                                    num_of_assessments=form.num_of_assessments.data,
+                                    completed_assessments = 0,
+                                    student_id = current_user.id,
+                                    module_code = form.module_code.data)
+                # add to database
+                db.session.add(p) 
+                current_user.modules.append(p)
+                db.session.commit()
+                flash("Module successfully added", 'alert alert-info')
+                return redirect(url_for('dashboard'))     
 
         except Exception as e:
             app.logger.error(e)
@@ -286,9 +290,9 @@ def add_assessment():
     if request.method == 'POST':
         # if user clicks a button, check if the button is the back button
         clicked = request.form['button']
-        flash(clicked)
+        # flash(clicked)
         if clicked == 'Back to modules':
-            flash(clicked, 'alert alert-info')
+            # flash(clicked, 'alert alert-info')
             return redirect(url_for('view_assessments'))
         try:
             if clicked == 'Add Assessment':
@@ -296,7 +300,7 @@ def add_assessment():
                     #calculate percentage
                     percent = (form.score.data / form.total_marks.data)* 100
 
-                    p = models.Assessments( title = form.title.data,
+                    p = models.Assessments( title = (form.title.data).strip(),
                                             score = form.score.data,
                                             total_marks = form.total_marks.data,
                                             score_percent = percent,
@@ -305,7 +309,8 @@ def add_assessment():
                                             student_id = current_user.id)
                     db.session.add(p) # add to database
                     db.session.commit()
-                    flash("Successfully added", 'alert alert-success')
+                    
+                    
 
                     #calulate weighted avarage and update the right module
                     weighted_average = 0 #how much of the module has been achieved
@@ -321,10 +326,10 @@ def add_assessment():
                         weighted_average += (worth * assessment.score_percent)
                         average += assessment.score_percent
                     average = average / num_of_completed_assessments
-                    flash(f'Weighted average {weighted_average}', 'alert alert-info')
-                    flash(f'Percent Completed {percent_completed}%', 'alert alert-info')
-                    flash(f'Number of completed assessements: {num_of_completed_assessments}', 'alert alert-info')
-                    flash(f'Average {average}', 'alert alert-info')
+                    # flash(f'Weighted average {weighted_average}', 'alert alert-info')
+                    # flash(f'Percent Completed {percent_completed}%', 'alert alert-info')
+                    # flash(f'Number of completed assessements: {num_of_completed_assessments}', 'alert alert-info')
+                    # flash(f'Average {average}', 'alert alert-info')
 
                     #update the selected module module
                     module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
@@ -334,20 +339,23 @@ def add_assessment():
                     module.completed_assessments = num_of_completed_assessments
                     
                     db.session.commit()
-                    flash("Module Information Successfully Updated", 'alert alert-success')
-                    #calculate targets
-                    #more than one assessment left
-                    flash(percent_completed, 'alert alert-info')
-                    worthOfFinalAssessment = 100 - percent_completed
-                    numberOfAssessmentsLeft = module.num_of_assessments - num_of_completed_assessments
-                    gradeForAFirst = ((70 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                    gradeForATwoOne = ((60 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                    gradeForATwoTwo = ((50 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                    gradeForAPass = ((40 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                    output = f"Your current grade is {weighted_average}%."
-                    output += f"You have {numberOfAssessmentsLeft} assessments left worth a total of {worthOfFinalAssessment}%."
-                    output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
-                    flash(output, 'alert alert-info')
+                    app.logger.info('new assessment added')
+                    flash("Assessment successfully added", 'alert alert-success')
+                    return redirect(url_for('view_assessments')) 
+                    # flash("Module Information Successfully Updated", 'alert alert-success')
+                    # #calculate targets
+                    # #more than one assessment left
+                    # flash(percent_completed, 'alert alert-info')
+                    # worthOfFinalAssessment = 100 - percent_completed
+                    # numberOfAssessmentsLeft = module.num_of_assessments - num_of_completed_assessments
+                    # gradeForAFirst = ((70 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    # gradeForATwoOne = ((60 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    # gradeForATwoTwo = ((50 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    # gradeForAPass = ((40 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    # output = f"Your current grade is {weighted_average}%."
+                    # output += f"You have {numberOfAssessmentsLeft} assessments left worth a total of {worthOfFinalAssessment}%."
+                    # output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
+                    # flash(output, 'alert alert-info')
         except Exception as e:
             app.logger.critical(e)
             flash(e, 'alert alert-danger')
@@ -373,7 +381,7 @@ def view_assessments():
             #get the button value & convert it to an integer
             clicked = request.form['button']
             if clicked == 'add-assessment':
-                flash(clicked, 'alert alert-info')
+                # flash(clicked, 'alert alert-info')
                 #check that user can add assessment else raise exception
                 student_modules = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all() #get module information
                 count = 0 # count for the number of modules
@@ -383,8 +391,8 @@ def view_assessments():
                 assessments = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
                 for a in assessments:
                     count+=1
-                flash(count, 'alert alert-info')
-                flash(module.num_of_assessments, 'alert alert-info')
+                # flash(count, 'alert alert-info')
+                # flash(module.num_of_assessments, 'alert alert-info')
 
                 if count >= module.num_of_assessments:
                     app.logger.info('user has added the maximum number of assessments for module {selected_module}')
@@ -395,9 +403,9 @@ def view_assessments():
                 return redirect(url_for('dashboard'))
             else: #deleting assessment
                 if 'delete-assessment' in clicked:
-                    flash('deleting assessment', 'alert alert-info')
+                    # flash('deleting assessment', 'alert alert-info')
                     title = clicked[18:]
-                    flash(title, 'alert alert-info')
+                    # flash(title, 'alert alert-info')
                     assessments = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
                     for assessment in assessments:
                         if(title == assessment.title):
@@ -409,21 +417,21 @@ def view_assessments():
                     for assessment in assessments:
                         worth = assessment.assessment_worth / 100
                         weighted_average += (worth * assessment.score_percent)
-                    flash(f'weighted_average: {weighted_average}', 'alert alert-info')
+                    # flash(f'weighted_average: {weighted_average}', 'alert alert-info')
                     #update the selected module module
                     module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
-                    flash(module, 'alert alert-info')
+                    # flash(module, 'alert alert-info')
                     module.weighted_average = weighted_average
                     db.session.commit()
-                    flash("Module Information Successfully Updated", 'alert alert-success')
+                    app.logger.info('assessment deleted')
+                    flash("Assessment successfully deleted", 'alert alert-success')
 
         except Exception as e:
-            app.logger.critical(e)
+            app.logger.warning(e)
             flash(e, 'alert alert-info')
 
     # data = models.Assessments.query.all()
     data = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
-
     return render_template('view_assessments.html',
                             title=title,
                             header=header,

@@ -8,7 +8,7 @@ from wtforms import PasswordField
 from wtforms import BooleanField
 from wtforms import ValidationError
 
-from wtforms.validators import InputRequired,EqualTo, NumberRange, Length, Required
+from wtforms.validators import InputRequired,EqualTo, NumberRange, Length, Required, Optional
 from app import models
 from flask import flash, session
 from flask_login import current_user
@@ -21,14 +21,10 @@ class ModuleForm(Form):
                                                             message='Must be between 0 and 1000000') ])
     num_of_credits = IntegerField('num_of_credits', validators=[InputRequired()])
 
-    #validating score is not greater than total marks
-    def validate_assessments(self, field):
-        flash('Validating num of assessments')
-        # flash(type(self.num_of_assessments.data))
 
 # form to add assessements
 class AssessmentForm(Form):
-    title = TextField('title', validators=[InputRequired()])
+    title = TextField('title', validators=[InputRequired(),Optional()] )
     score = IntegerField('score', validators=[InputRequired()])
     total_marks = IntegerField('total_marks', validators=[InputRequired()])
     assessment_worth = IntegerField('assessment_worth',
@@ -40,9 +36,9 @@ class AssessmentForm(Form):
     #validating assessment name is unique
     def validate_title(self, title):
         module_code = session['selected_module']
-        assessment = models.Assessments.query.filter_by(student_id=current_user.id).filter_by(module_code=module_code).filter_by(title=title.data).first()
+        assessment = models.Assessments.query.filter_by(student_id=current_user.id).filter_by(module_code=module_code).filter_by(title=(title.data).strip()).first()
         if assessment:
-            raise ValidationError('Try Again! You have already added an assessment with this title for this module!')
+            raise ValidationError('You have already added an assessment with this title for this module!')
     #validating score is not greater than total marks
     def validate_score(self, score):
         if self.score.data > self.total_marks.data:
@@ -59,7 +55,6 @@ class SignUpForm(Form):
 
     #validating that the username is unique
     def validate_username(self, username):
-        flash('Validating User Name')
         student = models.Students.query.filter_by(username=username.data).first()
         if student:
             raise ValidationError('Username taken! Please choose a different username')
