@@ -8,6 +8,7 @@ import datetime
 import logging
 
 
+
 @app.route('/', methods=['GET','POST'])
 @app.route('/index', methods=['GET','POST'])
 def index():
@@ -255,6 +256,7 @@ def add_module():
                     p = models.Modules( title=form.title.data,
                                         credit = form.num_of_credits.data,
                                         num_of_assessments=form.num_of_assessments.data,
+                                        completed_assessments = 0,
                                         student_id = current_user.id,
                                         module_code = form.module_code.data)
                     # add to database
@@ -306,28 +308,38 @@ def add_assessment():
                     flash("Successfully added", 'alert alert-success')
 
                     #calulate weighted avarage and update the right module
-                    weighted_average = 0
-                    sumofTakenAssessments = 0
-                    num_of_assessments = 0 # number of assesments taken
+                    weighted_average = 0 #how much of the module has been achieved
+                    average = 0
+                    percent_completed = 0 # total % of the completed assessment
+                    num_of_completed_assessments = 0 # number of assesments taken
                     data = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
+                    
                     for assessment in data:
-                        num_of_assessments += 1
-                        sumofTakenAssessments += assessment.assessment_worth
+                        num_of_completed_assessments += 1
+                        percent_completed += assessment.assessment_worth
                         worth = assessment.assessment_worth / 100
                         weighted_average += (worth * assessment.score_percent)
-                    flash(weighted_average, 'alert alert-info')
+                        average += assessment.score_percent
+                    average = average / num_of_completed_assessments
+                    flash(f'Weighted average {weighted_average}', 'alert alert-info')
+                    flash(f'Percent Completed {percent_completed}%', 'alert alert-info')
+                    flash(f'Number of completed assessements: {num_of_completed_assessments}', 'alert alert-info')
+                    flash(f'Average {average}', 'alert alert-info')
 
                     #update the selected module module
                     module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
-                    module.average = weighted_average
+                    module.average = average
+                    module.weighted_average = weighted_average
+                    module.percent_completed = percent_completed
+                    module.completed_assessments = num_of_completed_assessments
+                    
                     db.session.commit()
                     flash("Module Information Successfully Updated", 'alert alert-success')
-
                     #calculate targets
                     #more than one assessment left
-                    flash(sumofTakenAssessments, 'alert alert-info')
-                    worthOfFinalAssessment = 100 - sumofTakenAssessments
-                    numberOfAssessmentsLeft = module.num_of_assessments - num_of_assessments
+                    flash(percent_completed, 'alert alert-info')
+                    worthOfFinalAssessment = 100 - percent_completed
+                    numberOfAssessmentsLeft = module.num_of_assessments - num_of_completed_assessments
                     gradeForAFirst = ((70 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
                     gradeForATwoOne = ((60 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
                     gradeForATwoTwo = ((50 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
@@ -401,7 +413,7 @@ def view_assessments():
                     #update the selected module module
                     module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
                     flash(module, 'alert alert-info')
-                    module.average = weighted_average
+                    module.weighted_average = weighted_average
                     db.session.commit()
                     flash("Module Information Successfully Updated", 'alert alert-success')
 

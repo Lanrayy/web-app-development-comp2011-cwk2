@@ -23,7 +23,6 @@
     </form>
 
     <div class="module-container">
-
         {% for p in data %}
          <div class="module" value={{p.module_code}}>
              <div class="module-info-container">
@@ -33,18 +32,24 @@
                  </div>
                  <div class="module-info">
                      <div class="info-item">
-                         <h1>{{p.average}}%</h1>  <p>Average:</p>
+                         <h1>{{p.weighted_average}}%</h1>  <p>Achieved:</p>
                      </div>
                      <div class="info-item">
-                         <h1>{{p.average}}%</h1>  <p>Average:</p>
-                     </div>
+                        <h1>{{p.percent_completed}}%</h1>  <p>Completed:</p>
+                    </div>
+                    <div class="info-item">
+                        <h1>{{p.completed_assessments}}</h1>  
+                        <p>Assessments completed:</p>
+                    </div>
                  </div>
              </div>
 
              <div>
-                <form method="post" name="completed" class="module-buttons-container">
-                    <button type="submit" name="button" value='{{p.module_code}}' class="btn btn-outline-primary update-btn">View Module</button>
-                    <button type="submit" name="button" value='delete-module-{{p.module_code}}' class="btn btn-outline-danger update-btn">Delete Module</button>
+                <form method="post" name="completed">
+                    <div class="module-buttons-container">
+                        <button type="submit" name="button" value='{{p.module_code}}' class="btn btn-outline-primary view-module">View Module</button>
+                        <button type="submit" name="button" value='delete-module-{{p.module_code}}' class="btn btn-outline-danger view-module">Delete Module</button>
+                    </div>
                </form>
             </div>
          </div>

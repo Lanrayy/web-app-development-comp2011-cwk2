@@ -28,15 +28,14 @@ class Modules(db.Model):
     module_code = db.Column(db.String(1000))
     title = db.Column(db.String(1000), index=True)
     num_of_assessments = db.Column(db.Integer)
+    completed_assessments = db.Column(db.Integer)
     average = db.Column(db.Float, default=0.0)
+    weighted_average = db.Column(db.Float, default=0)
+    percent_completed = db.Column(db.Float, default=0)
     credit = db.Column(db.Integer)
     student_id = db.Column(db.String(1000), db.ForeignKey('students.id'))
-    modules = db.relationship('Students', secondary='enrollment', backref=db.backref('modules'), lazy='dynamic') #create a back reference in the students table
-# # this table is the link entity between modules and assessments
-# assessment = db.Table('assessment', db.Model.metadata,
-#     db.Column('module_code', db.Integer, db.ForeignKey('modules.module_code'))
-#     db.Column('assessment_id', db.Integer, db.ForeignKey('assessments.id'))
-# )
+    #create a back reference in the students table
+    modules = db.relationship('Students', secondary='enrollment', backref=db.backref('modules'), lazy='dynamic') 
 
 
 class Assessments(db.Model):
