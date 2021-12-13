@@ -1,0 +1,29 @@
+INFO:app:add module route request
+ERROR:app:Please add a different module! You have already added a module with the same code!
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:37] "POST /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+ERROR:app:Please add a different module! You have already added a module with the same code!
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:50] "POST /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+ERROR:app:Please add a different module! You have already added a module with the same code!
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:51] "POST /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:56] "POST /add_module HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:add module route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:58] "[32mPOST /add_module HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:58] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:38:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:39:16] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:39:16] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:39:36] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:39:36] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:39:51] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 15:39:51] "GET /static/styles.css HTTP/1.1" 200 -

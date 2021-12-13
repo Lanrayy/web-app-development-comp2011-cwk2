@@ -22,7 +22,7 @@
             {{ form.hidden_tag() }}
 
             <div class="form-group">
-                <p class="form-label">Name</p>
+                <p class="form-label">Name*</p>
                 <div>
                    {{ form.name(class_="input-field") }}
                    {% for error in form.name.errors %}
@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group">
-                <p class="form-label">Username</p>
+                <p class="form-label">Username*</p>
                 <div>
                     {{ form.username(class_="input-field") }}
                     {% for error in form.username.errors %}
@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-group">
-                <p class="form-label">Password</p>
+                <p class="form-label">Password*</p>
                 <p>
                     {{ form.password(class_="input-field") }}
                     {% for error in form.password.errors %}
@@ -54,7 +54,7 @@
                 </p>
             </div>
             <div class="form-group">
-                <p class="form-label">Re-enter Password*</p>
+                <p class="form-label">Re-enter password*</p>
                 <p>
                     {{ form.password2(class_="input-field") }}
                     {% for error in form.password2.errors %}
@@ -63,7 +63,7 @@
                 </p>
             </div>
             <div class="submit-btn-container">
-                <input type="submit" value="Submit" id=5 class="btn btn-outline-primary submit-btn">
+                <input type="submit" value="Sign up" id=5 class="btn btn-outline-primary submit-btn">
             </div>
         </form>
     </div>

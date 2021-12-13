@@ -5,6 +5,7 @@ from wtforms import TextAreaField
 from wtforms import DateField
 from wtforms import SubmitField
 from wtforms import PasswordField
+from wtforms import BooleanField
 from wtforms import ValidationError
 
 from wtforms.validators import DataRequired,EqualTo, NumberRange, Length
@@ -58,6 +59,7 @@ class SignUpForm(Form):
 class LoginForm(Form):
     username = TextField('username', validators=[DataRequired()])
     password = PasswordField('password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
 
 class ButtonForm(Form):
     submit = SubmitField('Submit')

@@ -89,7 +89,7 @@ def login():
                 if(student):
                     if check_password_hash(student.password, form.password.data):
                         flash(student.password, 'alert alert-info')
-                        login_user(student, remember=True)
+                        login_user(student, remember=form.remember.data)
                         student.authenticated = True
                         app.logger.info('user authenticated. logging in...')
                         return redirect(url_for('dashboard'))
@@ -181,7 +181,7 @@ def dashboard():
     header = "Dashboard"
     form=ButtonForm()
 
-    #check if request methos is POST
+    #check if request method is POST
     if request.method == 'POST':
         try:
             #get the button value
@@ -232,31 +232,36 @@ def add_module():
     form = ModuleForm()
 
     if request.method == 'POST':
+        flash("Request Method is POST")
+        clicked = request.form['button']
         try:
             #check if back to dashboard button clicked
-            clicked = request.form['button']
-            if clicked == 'back-to-dashboard':
+            if clicked == 'Back to dashboard':
                 flash(clicked, 'alert alert-info')
                 return redirect(url_for('dashboard'))
-            
-            if form.validate_on_submit():
-                #get a list of all the modules
-                data = current_user.modules
-                #check if module code already exists
-                for module in data:
-                    if module.module_code == form.module_code.data:
-                        raise Exception(f'Unable to add! Module already exists! Please add a different module')
+            else:
+                flash(clicked, 'alert alert-success')
 
-                #This code will run if there are no duplicate modules
-                p = models.Modules( title=form.title.data,
-                                    credit = form.num_of_credits.data,
-                                    num_of_assessments=form.num_of_assessments.data,
-                                    student_id = current_user.id,
-                                    module_code = form.module_code.data)
-                db.session.add(p) # add to database
-                current_user.modules.append(p)
-                db.session.commit()
-                flash("Module Successfully added", 'alert alert-info')
+            # if form.validate_on_submit():
+                if clicked == 'Add module':
+                    # get a list of all the modules
+                    data = current_user.modules
+                    # check if module code already exists
+                    for module in data:
+                        if module.module_code == form.module_code.data:
+                            raise Exception(f'Please add a different module! You have already added a module with the same code!')
+
+                    #This code will run if there are no duplicate modules
+                    p = models.Modules( title=form.title.data,
+                                        credit = form.num_of_credits.data,
+                                        num_of_assessments=form.num_of_assessments.data,
+                                        student_id = current_user.id,
+                                        module_code = form.module_code.data)
+                    # add to database
+                    db.session.add(p) 
+                    current_user.modules.append(p)
+                    db.session.commit()
+                    flash("Module Successfully added", 'alert alert-info')     
 
         except Exception as e:
             app.logger.error(e)
@@ -280,56 +285,57 @@ def add_assessment():
         # if user clicks a button, check if the button is the back button
         clicked = request.form['button']
         flash(clicked)
-        if clicked == 'back-to-modules':
+        if clicked == 'Back to modules':
             flash(clicked, 'alert alert-info')
             return redirect(url_for('view_assessments'))
         try:
-            if form.validate_on_submit(): #check if the form validates
-                #calculate percentage
-                percent = (form.score.data / form.total_marks.data)* 100
+            if clicked == 'Add Assessment':
+                if form.validate_on_submit(): #check if the form validates
+                    #calculate percentage
+                    percent = (form.score.data / form.total_marks.data)* 100
 
-                p = models.Assessments( title = form.title.data,
-                                        score = form.score.data,
-                                        total_marks = form.total_marks.data,
-                                        score_percent = percent,
-                                        assessment_worth = form.assessment_worth.data,
-                                        module_code= selected_module,
-                                        student_id = current_user.id)
-                db.session.add(p) # add to database
-                db.session.commit()
-                flash("Successfully added", 'alert alert-success')
+                    p = models.Assessments( title = form.title.data,
+                                            score = form.score.data,
+                                            total_marks = form.total_marks.data,
+                                            score_percent = percent,
+                                            assessment_worth = form.assessment_worth.data,
+                                            module_code= selected_module,
+                                            student_id = current_user.id)
+                    db.session.add(p) # add to database
+                    db.session.commit()
+                    flash("Successfully added", 'alert alert-success')
 
-                #calulate weighted avarage and update the right module
-                weighted_average = 0
-                sumofTakenAssessments = 0
-                num_of_assessments = 0 # number of assesments taken
-                data = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
-                for assessment in data:
-                    num_of_assessments += 1
-                    sumofTakenAssessments += assessment.assessment_worth
-                    worth = assessment.assessment_worth / 100
-                    weighted_average += (worth * assessment.score_percent)
-                flash(weighted_average, 'alert alert-info')
+                    #calulate weighted avarage and update the right module
+                    weighted_average = 0
+                    sumofTakenAssessments = 0
+                    num_of_assessments = 0 # number of assesments taken
+                    data = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
+                    for assessment in data:
+                        num_of_assessments += 1
+                        sumofTakenAssessments += assessment.assessment_worth
+                        worth = assessment.assessment_worth / 100
+                        weighted_average += (worth * assessment.score_percent)
+                    flash(weighted_average, 'alert alert-info')
 
-                #update the selected module module
-                module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
-                module.average = weighted_average
-                db.session.commit()
-                flash("Module Information Successfully Updated", 'alert alert-success')
+                    #update the selected module module
+                    module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
+                    module.average = weighted_average
+                    db.session.commit()
+                    flash("Module Information Successfully Updated", 'alert alert-success')
 
-                #calculate targets
-                #more than one assessment left
-                flash(sumofTakenAssessments, 'alert alert-info')
-                worthOfFinalAssessment = 100 - sumofTakenAssessments
-                numberOfAssessmentsLeft = module.num_of_assessments - num_of_assessments
-                gradeForAFirst = ((70 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                gradeForATwoOne = ((60 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                gradeForATwoTwo = ((50 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                gradeForAPass = ((40 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
-                output = f"Your current grade is {weighted_average}%."
-                output += f"You have {numberOfAssessmentsLeft} assessments left worth a total of {worthOfFinalAssessment}%."
-                output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
-                flash(output, 'alert alert-info')
+                    #calculate targets
+                    #more than one assessment left
+                    flash(sumofTakenAssessments, 'alert alert-info')
+                    worthOfFinalAssessment = 100 - sumofTakenAssessments
+                    numberOfAssessmentsLeft = module.num_of_assessments - num_of_assessments
+                    gradeForAFirst = ((70 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    gradeForATwoOne = ((60 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    gradeForATwoTwo = ((50 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    gradeForAPass = ((40 - weighted_average)/ numberOfAssessmentsLeft) / (worthOfFinalAssessment / numberOfAssessmentsLeft)*100
+                    output = f"Your current grade is {weighted_average}%."
+                    output += f"You have {numberOfAssessmentsLeft} assessments left worth a total of {worthOfFinalAssessment}%."
+                    output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
+                    flash(output, 'alert alert-info')
         except Exception as e:
             app.logger.critical(e)
             flash(e, 'alert alert-danger')

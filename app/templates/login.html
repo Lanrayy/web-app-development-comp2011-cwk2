@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div >{% with messages = get_flashed_messages(with_categories=true) %}
+<div>{% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       <ul class=flashes>
       {% for category, message in messages %}
@@ -19,7 +19,7 @@
 
     <div class="login-page">
 
-        <form method="post" name="create_assessment" class="form">
+        <form method="post" name="add_assessment" class="form">
             <!-- Prevents Attacks -->
             {{ form.hidden_tag() }}
 
@@ -45,8 +45,17 @@
                     {% endfor %}
                 </p>
             </div>
+
+            <div class="form-group">
+                <p class="form-check">
+                    {{ form.remember(class_="form-check-input")}}
+                    {{ form.remember.label(class_="form-check-label")}}
+                    
+
+                </p>
+            </div>
             <div class="submit-btn-container">
-                <input type="submit" value="Submit" id=5 class="btn btn-outline-primary submit-btn">
+                <input type="submit" value="Login" id=5 class="btn btn-outline-primary submit-btn">
             </div>
         </form>
     </div>
