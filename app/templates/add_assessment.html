@@ -41,7 +41,7 @@
             <div class="form-group">
                 <p class="form-label">Your score</p>
                 <p>
-                    {{ form.score(class_="input-field") }}
+                    {{ form.score(class_="input-field", type="number") }}
                     {% for error in form.score.errors %}
                         <span style="color:red">[{{ error }}]</span>
                     {% endfor %}
@@ -51,7 +51,7 @@
             <div class="form-group">
                 <p class="form-label">Total Marks</p>
                 <p>
-                    {{ form.total_marks(class_="input-field") }}
+                    {{ form.total_marks(class_="input-field", type="number") }}
                     {% for error in form.total_marks.errors %}
                         <span style="color:red">[{{ error }}]</span>
                     {% endfor %}
@@ -61,7 +61,7 @@
             <div class="form-group">
                 <p class="form-label">How much is this assessment worth(%)</p>
                 <div>
-                    {{ form.assessment_worth(class_="input-field") }}
+                    {{ form.assessment_worth(class_="input-field", type="number") }}
                     {% for error in form.assessment_worth.errors %}
                         <span style="color:red">[{{ error }}]</span>
                     {% endfor %}

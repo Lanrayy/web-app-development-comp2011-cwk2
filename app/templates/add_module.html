@@ -54,7 +54,7 @@
             <div class="form-group">
                 <p class="form-label">Number of Assessments</p>
                 <p>
-                    {{ form.num_of_assessments(class_="input-field") }}
+                    {{ form.num_of_assessments(class_="input-field", type="number") }}
                     {% for error in form.num_of_assessments.errors %}
                         <span style="color:red">[{{ error }}]</span>
                     {% endfor %}
@@ -64,7 +64,7 @@
             <div class="form-group">
                 <p class="form-label">Number of Credits</p>
                 <p>
-                    {{ form.num_of_credits(class_="input-field") }}
+                    {{ form.num_of_credits(class_="input-field", type="number") }}
                     {% for error in form.num_of_credits.errors %}
                         <span style="color:red">[{{ error }}]</span>
                     {% endfor %}
