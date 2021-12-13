@@ -120,7 +120,7 @@ def account():
             clicked_button = request.form['button']
             #check which button was clicked
             if clicked_button == 'change-password':
-                flash(clicked_button, 'alert alert-info')
+                # flash(clicked_button, 'alert alert-info')
                 return redirect(url_for('edit_password'))
             elif clicked_button == 'logout':
                 return redirect(url_for('logout'))
@@ -174,7 +174,7 @@ def logout():
     session.clear()
     logout_user()
     app.logger.info('user logged out')
-    flash('Logged out successfully!', 'alert alert-danger')
+    flash('Logged out successfully!', 'alert alert-success')
     return redirect(url_for('login'))
 
 

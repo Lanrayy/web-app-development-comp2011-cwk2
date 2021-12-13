@@ -1,6 +1,12 @@
 INFO:app:login route request
-INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 20:46:52] "GET /login HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 20:46:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:user authenticated. logging in...
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 21:08:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:dashboard route request
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 21:08:45] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 21:08:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:app:logout route request
+INFO:app:user logged out
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 21:08:47] "[32mGET /logout HTTP/1.1[0m" 302 -
 INFO:app:login route request
-INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 20:47:12] "GET /login HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 20:47:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 21:08:47] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Dec/2021 21:08:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
