@@ -238,7 +238,7 @@ def add_module():
     form = ModuleForm()
 
     if request.method == 'POST':
-        flash("Request Method is POST")
+        # flash("Request Method is POST")
         clicked = request.form['button']
         try:
             #check if back to dashboard button clicked
