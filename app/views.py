@@ -96,6 +96,7 @@ def login():
                         login_user(student, remember=form.remember.data)
                         student.authenticated = True
                         app.logger.info('user authenticated. logging in...')
+                        flash('Logged successfully', 'alert alert-success')
                         return redirect(url_for('dashboard'))
                     else:
                         raise Exception('Invalid username or password! Please try again!')
