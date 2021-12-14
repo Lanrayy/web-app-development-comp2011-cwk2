@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div >{% with messages = get_flashed_messages(with_categories=true) %}
+<div onclick=delete_flash(this) >{% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       <ul class=flashes>
       {% for category, message in messages %}

@@ -1,3 +1,11 @@
-window.setTimeout(function(){
-    $(".alert").fadeTo(500, 0)
-}, 4000)
+$(document).ready(function() {
+    // function delete_flash(flash){
+    //     $(flash).parent().remove()
+    // }
+
+    // hide alert after a time period
+    $(function() { 
+        setTimeout(function() { 
+            $(".alert").hide()}, 5000); 
+        }); 
+});
