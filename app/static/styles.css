@@ -19,9 +19,6 @@ body{
     background-color: red;
 }
 
-nav{
-    min-height: 70px;
-}
 
 .page-title{
     display: flex;
@@ -29,11 +26,7 @@ nav{
     margin-top: 20px;
 }
 
-.navbar-logo{
-    font-family: monospace, sans-serif;
-    font-weight:bolder;
-    padding-left: 30px;
-}
+
 
 .active{
     color: red;
@@ -52,6 +45,22 @@ ul{
 .flashes{
     /* border: 1px solid red; */
     padding: 0px;
+}
+
+/* NAV BAR LOGO */
+
+nav{
+    min-height: 70px;
+}
+
+.navbar-logo{
+    font-family: 'Bungee', monospace;
+    font-weight:bolder;
+    padding-left: 30px;
+}
+
+.navbar-brand{
+    font-size: 2rem;
 }
 
 /* INDEX / HOME STYLES */
@@ -78,9 +87,8 @@ ul{
 
 .assessment{
     font-size: 90px;
-    font-family: monospace;
+    font-family: 'Bungee', monospace;
     color: #0275d8;
-    color: #d802aa;
 }
 
 .subtitle{
@@ -136,10 +144,6 @@ ul{
 
 /*DASHBOARD STYLES*/
 /*Each module styles*/
-a{
-    
-}
-
 /*container for all the modules*/
 .body{
     background-color: red;
