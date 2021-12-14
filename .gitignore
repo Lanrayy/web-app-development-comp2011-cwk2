@@ -27,3 +27,4 @@ htmlcov/
 
 app.db
 migrations/
+logs.log
