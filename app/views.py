@@ -298,6 +298,27 @@ def add_assessment():
         try:
             if clicked == 'Add Assessment':
                 if form.validate_on_submit(): #check if the form validates
+                    #check that adding this new assessment will be valid
+                    #get the module information
+                    module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
+                    #get all the assessments currently in the database for the module
+                    assessments = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
+                    numCompleted = 0
+                    numLeft = 0
+                    percCompleted = 0
+                    #find out the number of assessments left for the module
+                    for assessment in assessments:
+                        numCompleted += 1
+                        percCompleted += assessment.assessment_worth
+                    
+                    numLeft = module.num_of_assessments - numCompleted
+                    if numLeft == 1:
+                        if form.assessment_worth.data + percCompleted > 100:
+                            raise Exception('This assessment will make the total taken assessment greater than 100%')
+                        elif form.assessment_worth.data + percCompleted < 100:
+                            raise Exception('This assessment will make the total taken assessment less than 100%')
+                    #this code will run if the we were not adding the last assessment 
+                    #or the assessment added will make the total equal exactly 100        
                     #calculate percentage
                     percent = (form.score.data / form.total_marks.data)* 100
 
@@ -331,6 +352,7 @@ def add_assessment():
                     # flash(f'Percent Completed {percent_completed}%', 'alert alert-info')
                     # flash(f'Number of completed assessements: {num_of_completed_assessments}', 'alert alert-info')
                     # flash(f'Average {average}', 'alert alert-info')
+                    
 
                     #update the selected module module
                     module = models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
@@ -338,10 +360,11 @@ def add_assessment():
                     module.weighted_average = weighted_average
                     module.percent_completed = percent_completed
                     module.completed_assessments = num_of_completed_assessments
+
                     
                     db.session.commit()
                     app.logger.info('new assessment added')
-                    flash("Assessment successfully added", 'alert alert-success')
+                    flash("Assessment added successfully!", 'alert alert-success')
                     return redirect(url_for('view_assessments')) 
                     # flash("Module Information Successfully Updated", 'alert alert-success')
                     # #calculate targets
@@ -376,7 +399,6 @@ def view_assessments():
     header = "View"
     selected_module = session.get('selected_module', None)
     module =  models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
-    module_title = module.title
     if request.method == 'POST':
         try:
             #get the button value & convert it to an integer
@@ -395,9 +417,10 @@ def view_assessments():
                 # flash(count, 'alert alert-info')
                 # flash(module.num_of_assessments, 'alert alert-info')
 
+                #user cannot add more assessments than allowed
                 if count >= module.num_of_assessments:
                     app.logger.info('user has added the maximum number of assessments for module {selected_module}')
-                    raise Exception('You have added the maximum number of assessments for this module')
+                    raise Exception('You have added the maximum number of assessments for this module!')
                 else:
                     return redirect(url_for('add_assessment'))
             elif clicked == 'back-to-dashboard':
@@ -429,7 +452,7 @@ def view_assessments():
 
         except Exception as e:
             app.logger.warning(e)
-            flash(e, 'alert alert-info')
+            flash(e, 'alert alert-danger')
 
     # data = models.Assessments.query.all()
     data = models.Assessments.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).all()
