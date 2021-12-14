@@ -53,6 +53,7 @@ ul{
     /* border: 1px solid red; */
     padding: 0px;
 }
+
 /* INDEX / HOME STYLES */
 .main-page-container{
     display: flex;
@@ -79,6 +80,7 @@ ul{
     font-size: 90px;
     font-family: monospace;
     color: #0275d8;
+    color: #d802aa;
 }
 
 .subtitle{
