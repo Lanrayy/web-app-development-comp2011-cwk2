@@ -26,3 +26,4 @@ htmlcov/
 *,cover
 
 app.db
+migrations/
