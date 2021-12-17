@@ -151,6 +151,7 @@ def edit_password():
                 if(student): #if the user is found
                     if check_password_hash(student.password, form.old_password.data): #compare inputed old password with password on database
                         if check_password_hash(student.password, form.new_password.data): #check if the new password is the same as old password
+                            app.logger.warning('failed to change password')
                             raise Exception("New password is the same as old password")
                         else:
                             student.password = generate_password_hash(form.new_password.data , method='sha256')
@@ -218,7 +219,7 @@ def dashboard():
                     app.logger.info(f'user clicked view module button: viewing module {clicked}')
                     return redirect(url_for('view_assessments'))
         except Exception as e:
-            app.logger.critical(e)
+            app.logger.error(e)
             flash(e, 'alert alert-danger')
 
     data = models.Modules.query.filter_by(student_id=current_user.id).all()
@@ -254,6 +255,7 @@ def add_module():
                 # check if module code already exists
                 for module in data:
                     if module.module_code == form.module_code.data:
+                        app.logger.warning('unable to add module')
                         raise Exception(f'Please add a different module! You have already added a module with the same code!')
 
                 #This code will run if there are no duplicate modules
@@ -286,7 +288,11 @@ def add_assessment():
     title = "Add Assessment"
     header = "Add Assessment"
     form = AssessmentForm()
-    selected_module = session.get('selected_module', None)
+    if current_user.is_authenticated:
+        selected_module = session.get('selected_module', None)
+    else:
+        app.logger.error('unable to get the selected module')
+        flash('Unable to get the selected module, go back and try again ', 'alert alert-danger')
 
     if request.method == 'POST':
         # if user clicks a button, check if the button is the back button
@@ -381,7 +387,7 @@ def add_assessment():
                     # output += f"You need {gradeForAFirst}% over the next {numberOfAssessmentsLeft} assessments to get a first"
                     # flash(output, 'alert alert-info')
         except Exception as e:
-            app.logger.critical(e)
+            app.logger.error(e)
             flash(e, 'alert alert-danger')
 
     return render_template('add_assessment.html',
@@ -397,7 +403,11 @@ def view_assessments():
     app.logger.info('view assessment route request')
     title = "View"
     header = "View"
-    selected_module = session.get('selected_module', None)
+    if current_user.is_authenticated:
+        selected_module = session.get('selected_module', None)
+    else:
+        app.logger.error('unable to get the selected module')
+        flash('Unable to get the selected module, go back and try again ', 'alert alert-danger')
     module =  models.Modules.query.filter_by(module_code=selected_module).filter_by(student_id=current_user.id).first()
     if request.method == 'POST':
         try:
@@ -451,7 +461,7 @@ def view_assessments():
                     flash("Assessment successfully deleted", 'alert alert-success')
 
         except Exception as e:
-            app.logger.warning(e)
+            app.logger.error(e)
             flash(e, 'alert alert-danger')
 
     # data = models.Assessments.query.all()

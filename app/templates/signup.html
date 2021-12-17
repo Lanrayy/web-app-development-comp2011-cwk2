@@ -12,7 +12,7 @@
 </div>
 <div class="page-title">
     <h1>Sign up</h1>
-    <p>Please sign up below</p>
+    <p>Please enter your information below to sign up for an account</p>
 </div>
 
 <div class="signup-container">
@@ -22,7 +22,7 @@
             {{ form.hidden_tag() }}
 
             <div class="form-group">
-                <p class="form-label">Name*</p>
+                <p class="form-label">Full name*</p>
                 <div>
                    {{ form.name(class_="input-field") }}
                    {% for error in form.name.errors %}
