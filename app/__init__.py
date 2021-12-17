@@ -13,7 +13,7 @@ from flask_login import (
 )
 
 import logging
-logging.basicConfig(filename='logs.log', filemode='w', level=logging.DEBUG)
+logging.basicConfig(filename='logs.log', level=logging.DEBUG,  format='%(levelname)s:%(name)s:%(asctime)s:%(message)s')
 
 app = Flask(__name__)
 app.config.from_object('config')

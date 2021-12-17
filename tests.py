@@ -1,6 +1,6 @@
 import os
 import unittest
-from flask import Flask
+from flask import Flask, request, session
 from flask_sqlalchemy import SQLAlchemy
 from app import app, db, models
 
@@ -8,6 +8,7 @@ class TestCase(unittest.TestCase):
     def setUp(self):
         app.config.from_object('config')
         app.config['TESTING'] = True
+        app.config['LOGIN_DISABLED'] = True
         app.config['WTF_CSRF_ENABLED'] = False
         #the basedir lines could be added like the original db
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -21,53 +22,55 @@ class TestCase(unittest.TestCase):
         db.session.remove()
         db.drop_all()
 
-    ##### HELPER ######
-    def register(self, name, username, password, password2):
-        return self.app.post('/register',data=dict(name=name, username=username,
-        password1=password,
-        password2=password2),
-        follow_redirects=True
-        )
-
-    def login(self, username, password):
-        return self.app.post('/login',data=dict(email=email, password=password),
-        follow_redirects=True)
-
-    def logout(self):return self.app.get('/logout',follow_redirects=True)
-
-    ##########
-
-    def test_valid_login(self):
-        tester = app.test_client(self)
-        response = tester.post('/login', content_type='html/text', data=dict(username="bob", password="test",
-        follow_redirects=True))
-
-        self.assertIn(b'Dashboard' in response.data)
-    #test webpage redirects to login page
-    def test_loginroute(self):
-        response = self.app.get('/login',follow_redirects=True)
+    #get signup test
+    data={'name': 'Mike', 'username':'mike', 'password': 'test', 'password2':'test' }
+    #get login test
+    def test_login_route(self):
+        response = self.app.get('/login')
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(b'Login' in response.data)
-
-    def test_loginroute(self, ):
-        response = self.app.get('/login',follow_redirects=True)
+        print('Login route test completed')
+        pass
+    
+    #get signup test
+    def test_signup_route(self):
+        response = self.app.get('/signup')
         self.assertEqual(response.status_code, 200)
+        print('Signup route test completed')
+        pass
 
-    def test_indexroute(self):
-        response = self.app.get('/',follow_redirects=True)
+    # get account test
+    def test_account_get_route(self):
+        response = self.app.get('/account')
         self.assertEqual(response.status_code, 200)
+        print('Account get route test completed')
+        pass
 
-    def test_logoutroute(self):
-        response = self.app.get('/logout', follow_redirects=True)
+    
+    # get add module test
+    def test_add_module_get_route(self):
+        response = self.app.get('/add_module')
         self.assertEqual(response.status_code, 200)
-
-    def test_signuproute(self):
-        response = self.app.get('/signup',follow_redirects=True)
+        print('Add module get route test completed')
+        
+    # get edit password test
+    def test_edit_password_get_route(self):
+        response = self.app.get('/edit_password')
         self.assertEqual(response.status_code, 200)
+        print('Edit password get route test completed')
+        pass
 
-    # def test_dashboardroute(self):
-    #     response = self.app.get('/dashboard',follow_redirects=True)
-    #     self.assertEqual(response.status_code, 200)
+    # get index test
+    def test_index_get_route(self):
+        response = self.app.get('/index')
+        self.assertEqual(response.status_code, 200)
+        print('Index get route test completed')
+        pass
+    
+
+    
+
+
+
 
 
 
