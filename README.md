@@ -25,6 +25,6 @@ Repository for COMP 2011 Coursework 2
 `$ flask run --port=5000`  
 Note: May need to pip install other modules if an import error is raised!  
   
-5. Visit the client on local host at http://127.0.0.1:5001/  
+5. Visit the client on local host at http://127.0.0.1:5000/  
 
 Happy Exploring! 
